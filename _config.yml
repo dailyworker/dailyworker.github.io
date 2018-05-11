@@ -100,7 +100,7 @@ analytics:
 author:
   name             : "Sean Sin"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
+  bio              : "온새미로"
   location         : "Korea"
   email            : "Workingssu@gmail.com"
   uri              : 
@@ -109,13 +109,13 @@ author:
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : https://www.facebook.com/100005450317017
   foursquare       :
   github           :
   gitlab           :
   google_plus      :
   keybase          :
-  instagram        :
+  instagram        : https://www.instagram.com/suung_sin/
   lastfm           :
   linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
   pinterest        :
