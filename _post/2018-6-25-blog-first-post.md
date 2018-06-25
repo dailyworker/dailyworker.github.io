@@ -1,9 +1,10 @@
 ---
-title: 블로그 시작!!
-date: 2018-06-25
+title: 블로그 포스팅 시작!!
+date: 2018-06-25 18:02:00 +0900
 category: blog
 tags: 
     - blog  
+    - start
 ---
 
 # 첫 블로그 포스팅
