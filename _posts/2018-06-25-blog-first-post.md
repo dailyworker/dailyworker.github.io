@@ -17,10 +17,13 @@ tags:
 
 ### 블로그 개설 방법
 ***
-1. https://junhobaik.github.io/start-jekyll-blog/
-2. https://junhobaik.github.io/jekyll-apply-theme/
+1. [Jekyll 블로그 시작하기]
+2. [Jekyll 테마 적용하기]
 
 두개의 링크를 참고하여 만들었다.
+
+[Jekyll 블로그 시작하기]: https://junhobaik.github.io/start-jekyll-blog/  
+[Jekyll 테마 적용하기]: https://junhobaik.github.io/jekyll-apply-theme/
 
 ### 블로그 업로드 주제
 ***
