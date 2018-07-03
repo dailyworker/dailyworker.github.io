@@ -146,9 +146,9 @@ javac 10.0.1
 
 만일, JDK가 여러가지가 설치 된 경우에 새로 받은 JDK를 선택해야되는 상황이라면, 
 
-There are 4 programs which provide 'java'.
 ```console
 sudo alternatives --config java
+There are 4 programs which provide 'java'.
 
   Selection    Command
 -----------------------------------------------
