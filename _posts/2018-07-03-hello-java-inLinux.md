@@ -63,7 +63,7 @@ RPM 다운로드를 통하여 yum으로 설치하는 방법이 있다.
 
 ### JDK10 Install Using Downloaded JDK10 RPM file
 ***
-    1. STEP 1 - 자바10 RPM 다운로드하기
+    1. STEP 1 - JDK10 RPM 다운로드하기
     2. STEP 2 - JDK10 설치 하기
 
 ***
