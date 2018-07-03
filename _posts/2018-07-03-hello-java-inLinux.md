@@ -170,7 +170,7 @@ export PATH=$PATH:/usr/local/java/bin:/bin:/sbin
 (편집 후 저장 후에)
 [azureuser@AzureCentOS src]$ sudo source /etc/profile
 ```
-이런식으로 /etc/environment에 환경변수를 등록하여 사용하면 된다. 위의 내용을 적고, <span class="evidence">sudo source /etc/environment</span> 명령어를 통하여 변경사항을 등록한다.
+이런식으로 /etc/profile에 환경변수를 등록하여 사용하면 된다. 위의 내용을 적고, <span class="evidence">sudo source /etc/profile</span> 명령어를 통하여 변경사항을 등록한다.
 
 ### 트러블 슈팅
 ***
@@ -182,7 +182,13 @@ export PATH=$PATH:/usr/local/java/bin:/bin:/sbin
 <span class="evidence">export PATH=$PATH:/usr/local/java/bin:/bin:/sbin</span>
 부분 중에 <span class="evidence">:/bin:/sbin</span>을 추가적으로 PATH에 등록하면 해결이 된다.
 
-[^1]:http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html
+### 마치면서
+***
+추가로 필요하다면 JRE도 위의 방식과 동일한 방법으로 설치하면 된다.
+
+다음 글은 Tomcat 설치와 환경변수 등록 및 Nginx Reverse Proxy설정까지 하는 것으로 포스팅을 해보겠다.
+
+[^1]:http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html
 [^2]:http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html
 [^3]:http://jdm.kr/blog/74
 [^4]:http://www.myservlab.com/64
