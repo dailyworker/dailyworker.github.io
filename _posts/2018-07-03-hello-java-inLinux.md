@@ -84,7 +84,7 @@ wget.x86_64                            1.14-15.el7_4.1                @base
 
 현재 JDK10의 Latest Version은 10.0.1이다.
 ```console
-sudo wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+[azureuser@AzureCentOS local]$ sudo wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" \
   http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz
 ```
 해당 명령어를 주어서 자바10 JDK 소스파일을 다운로드 받는다.
@@ -104,7 +104,7 @@ ln -s /usr/local/jdk-10.0.1 /usr/local/java
 alternatives --install /usr/bin/java java /usr/local/bin/java 1
 alternatives --config java
 
-lternatives --install /usr/bin/jar jar /usr/local/java/bin/jar 1
+alternatives --install /usr/bin/jar jar /usr/local/java/bin/jar 1
 alternatives --install /usr/bin/javac javac /usr/local/java/bin/javac 1
 
 alternatives --set jar /usr/local/java/bin/jar
