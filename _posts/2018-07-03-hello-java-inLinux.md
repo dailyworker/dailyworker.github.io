@@ -1,15 +1,15 @@
 ---
 title: 리눅스(CentOS7)에서 자바 개발환경 구축하기
-date: 2018-06-25 18:02:00 +0900
+date: 2018-07-03 10:50:00 +0900
 tags: 
     - Linux
     - centOS7
     - setting_environment
 ---
 
-# 운영체제 환경
+## 운영체제 환경
 ***
-+ 리눅스
+### 리눅스
     1. 리눅스 배포반 버전
     2. 리눅스 커널 버전
 
@@ -34,7 +34,7 @@ tags:
 /etc/redhat-release:CentOS Linux release 7.5.1804 (Core)
 /etc/system-release:CentOS Linux release 7.5.1804 (Core)
 ``` 
-2. 리눅스 커널 버전
+1. 리눅스 커널 버전
 ```console
 [azureuser@AzureCentOS ~]$ yum list installed | grep ^kernel
 kernel.x86_64                          3.10.0-327.18.2.el7            @updates
@@ -47,24 +47,28 @@ kernel-tools-libs.x86_64               3.10.0-862.3.2.el7             @updates
 
 커널 버전과 배포판 버전은 위의 코드와 같이 CentOS-7.5버전과 3.10.0 커널을 사용한다. 
 
-# JDK 설치하기
+
+## JDK 설치하기
+***
 초기에는 원래 JDK9을 설치하려 했으나, 나온지 얼마 안되서 Java10 [^1]으로 통합이 되었는지 현재 JDK9는 *End of support* [^2]상태이다.(아무래도 Java10으로 통합이 된 것같다.) 따라서 Java버전은 Java10 [^1]으로 설치를 진행한다.
 
 방법은 소스를 다운로드 받아서 설치하는 방법과
 RPM 다운로드를 통하여 yum으로 설치하는 방법이 있다.
 
 여기서는 두 방법 모두 다뤄보기로 한다.
-
-+ JDK10 Install Using Downloaded JDK10 Source file
+### JDK10 Install Using Downloaded JDK10 Source file
+***
     1. STEP 1 - JDK10 소스 다운로드하기
     2. STEP 2 - JDK10 명령어 등록
     3. STEP 3 - JDK10 설치 확인
 
-+ JDK10 Install Using Downloaded JDK10 RPM file
+### JDK10 Install Using Downloaded JDK10 RPM file
+***
     1. STEP 1 - 자바10 RPM 다운로드하기
     2. STEP 2 - JDK10 설치 하기
 
-1.1 STEP 1 - 자바10 소스 다운로드하기
+***
+#### 1.1 STEP 1 - 자바10 소스 다운로드하기
 
 먼저 wget을 이용하기 때문에 wget이 설치되어 있는지부터 확인한다.
 (Minimal버전 일 경우에도 wget은 설치되어 있는 것으로 알고 있다.)
@@ -92,7 +96,7 @@ tar zxf jdk-10.0.1_linux-x64_bin.tar.gz -C /usr/local
 ```console
 ln -s /usr/local/jdk-10.0.1 /usr/local/java
 ```
-1.2 STEP 2 - 자바10 명령어 등록
+#### 1.2 STEP 2 - 자바10 명령어 등록
 
 압축풀기와 심볼릭링크 생성까지 마친 다음에는 이제는 컴파일과 명령어 등록하는 절차가 필요하다.
 
@@ -109,7 +113,7 @@ alternatives --set javac /usr/local/java/bin/javac
 
 alternatives명령어를 통해 java와 jar, javac 명령어를 등록한다.
 
-1.3 STEP 3 - 자바10 설치 확인
+#### 1.3 STEP 3 - 자바10 설치 확인
 
 STEP 1, 2를 끝낸 후라면 정상적인 경우에는 
 
@@ -124,14 +128,15 @@ javac 10.0.1
 ```
 이런식으로 등록한 명령어에 대한 결과 값이 정상적으로 출력이 된다.
 
-2.1 STEP 1 - 자바10 RPM 다운로드하기
+***
+#### 2.1 STEP 1 - 자바10 RPM 다운로드하기
 ```console
 [azureuser@AzureCentOS src]$ sudo wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" \
 > http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.rpm
 ```
 1.1과 마찬가지로 wget을 이용하여, rpm을 다운로드 받는다.
 
-2.2 STEP 2 - JDK10 설치 하기
+#### 2.2 STEP 2 - JDK10 설치 하기
 ```console
 [azureuser@AzureCentOS src]$ sudo yum localinstall jdk-10.0.1_linux-x64_bin.rpm
 ```
@@ -162,13 +167,13 @@ Enter to keep the current selection[+], or type selection number:
 
 export JAVA_HOME=/usr/local/java
 export PATH=$PATH:/usr/local/java/bin:/bin:/sbin
-(편집 후에 저장후에)
+(편집 후 저장 후에)
 [azureuser@AzureCentOS src]$ sudo source /etc/profile
 ```
 이런식으로 /etc/environment에 환경변수를 등록하여 사용하면 된다. 위의 내용을 적고, <span class="evidence">sudo source /etc/environment</span> 명령어를 통하여 변경사항을 등록한다.
 
-# 트러블 슈팅
-
+### 트러블 슈팅
+***
 환경 변수를 등록할때를 보면 PATH 부분을 저장 후에 리눅스의 기본 모든 명령어들이 사용이 안되는 현상이 발생했다.
 
 그 이유는 etc/profile에 PATH를 등록할때 루트(/)의 bin과 sbin의 명령어의 PATH가 날라가서 충돌이 발생하는 현상이 발생한다. 
