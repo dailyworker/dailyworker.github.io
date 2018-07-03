@@ -188,7 +188,7 @@ export PATH=$PATH:/usr/local/java/bin:/bin:/sbin
 
 다음 글은 Tomcat 설치와 환경변수 등록 및 Nginx Reverse Proxy설정까지 하는 것으로 포스팅을 해보겠다.
 
-[^1]:http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html
+[^1]:http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html
 [^2]:http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html
 [^3]:http://jdm.kr/blog/74
 [^4]:http://www.myservlab.com/64
