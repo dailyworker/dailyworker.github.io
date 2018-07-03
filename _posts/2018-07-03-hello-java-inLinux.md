@@ -8,7 +8,6 @@ tags:
 ---
 
 ## 운영체제 환경
-***
 ### 리눅스
     1. 리눅스 배포반 버전
     2. 리눅스 커널 버전
@@ -172,8 +171,7 @@ export PATH=$PATH:/usr/local/java/bin:/bin:/sbin
 ```
 이런식으로 /etc/profile에 환경변수를 등록하여 사용하면 된다. 위의 내용을 적고, <span class="evidence">sudo source /etc/profile</span> 명령어를 통하여 변경사항을 등록한다.
 
-### 트러블 슈팅
-***
+## 트러블 슈팅
 환경 변수를 등록할때를 보면 PATH 부분을 저장 후에 리눅스의 기본 모든 명령어들이 사용이 안되는 현상이 발생했다.
 
 그 이유는 etc/profile에 PATH를 등록할때 루트(/)의 bin과 sbin의 명령어의 PATH가 날라가서 충돌이 발생하는 현상이 발생한다. 
@@ -182,8 +180,7 @@ export PATH=$PATH:/usr/local/java/bin:/bin:/sbin
 <span class="evidence">export PATH=$PATH:/usr/local/java/bin:/bin:/sbin</span>
 부분 중에 <span class="evidence">:/bin:/sbin</span>을 추가적으로 PATH에 등록하면 해결이 된다.
 
-### 마치면서
-***
+## 마치면서
 추가로 필요하다면 JRE도 위의 방식과 동일한 방법으로 설치하면 된다.
 
 다음 글은 Tomcat 설치와 환경변수 등록 및 Nginx Reverse Proxy설정까지 하는 것으로 포스팅을 해보겠다.
