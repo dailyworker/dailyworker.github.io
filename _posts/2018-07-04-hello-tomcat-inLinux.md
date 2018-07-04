@@ -231,5 +231,5 @@ CentOS7이 설치된 PC의 아이피를 입력하거나, 그 PC 내부에서 웹
 ![톰캣 index.jsp](/assets/images/tomcat.png)
 위와 같은 화면이 보인다면 성공적으로 톰캣이 설치가 된 것이다.
 
-### 마치면서
+## 마치면서
 다음 글은 Nginx와 Tomcat을 연동하는 것으로 마무리로 Linux상에서 Java 환경을 구축하는 시리즈를 마무리를 짓기로 하겠다.
