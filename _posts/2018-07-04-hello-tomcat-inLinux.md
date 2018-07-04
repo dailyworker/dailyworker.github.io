@@ -168,7 +168,7 @@ tomcat:!::tomcat
 (저장 후)
 [azureuser@AzureCentOS ~]$ sudo chown -R tomcat:tomcat tomcat (톰캣 계정으로 실행권한 부여)
 [azureuser@AzureCentOS ~]$ sudo chmod 755 tomcat (쉘 스크립트 실행권한 부여)
-[azureuser@AzureCentOS ~]$ sudo cp -a tomcat /etc/rc.d/init.d/tomcat (쉘 스크립트 실행권한 부여)
+[azureuser@AzureCentOS ~]$ sudo cp -a tomcat /etc/rc.d/init.d/tomcat (시작 서비스 등록을 위한 디렉토리 변경)
 
 [azureuser@AzureCentOS ~]$ sudo chkconfig --add tomcat (runlevel 등록)
 [azureuser@AzureCentOS src]$ systemctl | grep tomcat
