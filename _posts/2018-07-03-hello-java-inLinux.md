@@ -4,6 +4,8 @@ date: 2018-07-03 10:50:00 +0900
 tags: 
     - Linux
     - centOS7
+    - JDK
+    - Java
     - setting_environment
 ---
 
@@ -48,14 +50,13 @@ kernel-tools-libs.x86_64               3.10.0-862.3.2.el7             @updates
 
 
 ## JDK 설치하기
-***
 초기에는 원래 JDK9을 설치하려 했으나, 나온지 얼마 안되서 Java10 [^1]으로 통합이 되었는지 현재 JDK9는 *End of support* [^2]상태이다.(아무래도 Java10으로 통합이 된 것같다.) 따라서 Java버전은 Java10 [^1]으로 설치를 진행한다.
 
 방법은 소스를 다운로드 받아서 설치하는 방법과
 RPM 다운로드를 통하여 yum으로 설치하는 방법이 있다.
 
 여기서는 두 방법 모두 다뤄보기로 한다.
-### JDK10 Install Using Downloaded JDK10 Source file
+### JDK10 Install Using Downloaded JDK10 Binary file
 ***
     1. STEP 1 - JDK10 소스 다운로드하기
     2. STEP 2 - JDK10 명령어 등록
@@ -65,9 +66,9 @@ RPM 다운로드를 통하여 yum으로 설치하는 방법이 있다.
 ***
     1. STEP 1 - JDK10 RPM 다운로드하기
     2. STEP 2 - JDK10 설치 하기
-
+07
 ***
-#### 1.1 STEP 1 - 자바10 소스 다운로드하기
+#### 1.1 STEP 1 - JDK10 소스 다운로드하기
 
 먼저 wget을 이용하기 때문에 wget이 설치되어 있는지부터 확인한다.
 (Minimal버전 일 경우에도 wget은 설치되어 있는 것으로 알고 있다.)
@@ -95,9 +96,9 @@ tar zxf jdk-10.0.1_linux-x64_bin.tar.gz -C /usr/local
 ```console
 ln -s /usr/local/jdk-10.0.1 /usr/local/java
 ```
-#### 1.2 STEP 2 - 자바10 명령어 등록
+#### 1.2 STEP 2 - JDK10 명령어 등록
 
-압축풀기와 심볼릭링크 생성까지 마친 다음에는 이제는 컴파일과 명령어 등록하는 절차가 필요하다.
+압축풀기와 심볼릭링크 생성까지 마친 다음에는 이제는 명령어 등록하는 절차가 필요하다.
 
 ```console
 alternatives --install /usr/bin/java java /usr/local/bin/java 1
@@ -112,7 +113,7 @@ alternatives --set javac /usr/local/java/bin/javac
 
 alternatives명령어를 통해 java와 jar, javac 명령어를 등록한다.
 
-#### 1.3 STEP 3 - 자바10 설치 확인
+#### 1.3 STEP 3 - JDK10 설치 확인
 
 STEP 1, 2를 끝낸 후라면 정상적인 경우에는 
 
@@ -128,7 +129,7 @@ javac 10.0.1
 이런식으로 등록한 명령어에 대한 결과 값이 정상적으로 출력이 된다.
 
 ***
-#### 2.1 STEP 1 - 자바10 RPM 다운로드하기
+#### 2.1 STEP 1 - JDK10 RPM 다운로드하기
 ```console
 [azureuser@AzureCentOS src]$ sudo wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" \
 > http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.rpm
@@ -166,10 +167,22 @@ Enter to keep the current selection[+], or type selection number:
 
 export JAVA_HOME=/usr/local/java
 export PATH=$PATH:/usr/local/java/bin:/bin:/sbin
+
 (편집 후 저장 후에)
 [azureuser@AzureCentOS src]$ sudo source /etc/profile
 ```
 이런식으로 /etc/profile에 환경변수를 등록하여 사용하면 된다. 위의 내용을 적고, <span class="evidence">sudo source /etc/profile</span> 명령어를 통하여 변경사항을 등록한다.
+
+추가로 **CLASSPATH**라는 환경변수도 등록이 가능한데, 사용할 클래스들의 위치를 가상머신에게 알려주는 역할을 한다.
+만약 클래스패스 변수가 없다면, 각각 클래스 패스를 지정해야된다. 이 뜻은 클래스가 여러 경로에 분산되어 있을 때 일일히 클래스패스를 명시해야되기 때문에 자주 쓰는 라이브러리 또는 api같은 경우에는 등록을 하는 것이 좋다.
+
+따라서 자주 쓰는 라이브러리같은 경우에는 클래스 패스를 등록을 하는게 좋다.
+```console
+[azureuser@AzureCentOS src]$ vi /etc/profile
+export CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
+```
+
+필자는 이와 같이 tools.jar과 jre/lib폴더를 추가하였다.
 
 ## 트러블 슈팅
 환경 변수를 등록할때를 보면 PATH 부분을 저장 후에 리눅스의 기본 모든 명령어들이 사용이 안되는 현상이 발생했다.
