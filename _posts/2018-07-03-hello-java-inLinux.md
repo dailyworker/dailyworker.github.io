@@ -9,6 +9,9 @@ tags:
     - setting_environment
 ---
 
+
+## 개요
+오늘은 Centos7에서 Java 개발환경을 구성하는 첫번째 단추인 Java(JDK)를 설치 후에 환경변수까지 설정하는 것을 적어보려고 한다.
 ## 운영체제 환경
 ### 리눅스
     1. 리눅스 배포반 버전
@@ -58,15 +61,15 @@ RPM 다운로드를 통하여 yum으로 설치하는 방법이 있다.
 여기서는 두 방법 모두 다뤄보기로 한다.
 ### JDK10 Install Using Downloaded JDK10 Binary file
 ***
-    1. STEP 1 - JDK10 소스 다운로드하기
-    2. STEP 2 - JDK10 명령어 등록
-    3. STEP 3 - JDK10 설치 확인
+1. STEP 1 - JDK10 소스 다운로드하기
+2. STEP 2 - JDK10 명령어 등록
+3. STEP 3 - JDK10 설치 확인
 
 ### JDK10 Install Using Downloaded JDK10 RPM file
 ***
-    1. STEP 1 - JDK10 RPM 다운로드하기
-    2. STEP 2 - JDK10 설치 하기
-07
+1. STEP 1 - JDK10 RPM 다운로드하기
+2. STEP 2 - JDK10 설치 하기
+
 ***
 #### 1.1 STEP 1 - JDK10 소스 다운로드하기
 

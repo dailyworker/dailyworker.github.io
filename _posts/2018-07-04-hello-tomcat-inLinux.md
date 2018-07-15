@@ -9,7 +9,7 @@ tags:
     - setting_environment
 ---
 ## 개요
-이번 글은 Apache Tomca 설치하고 Index.jsp 페이지인 고양이가 뛰어다니는 화면을 웹브라우저에 출력하는 것을 목표로 하겠다.
+이번 글은 Apache Tomcat 설치하고 Index.jsp 페이지인 고양이가 뛰어다니는 화면을 웹브라우저에 출력하는 것을 목표로 하겠다.
 
 ## Apache Tomcat 
 이전 글을 따라서 진행하는 사람이라면, Latest Version인 JDK10을 설치했을텐데 마찬가지로 톰캣 또한, Latest Version인 9.0.10 버전으로 설치해 보도록 하겠다.
