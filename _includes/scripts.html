@@ -23,6 +23,12 @@
   <script defer src="{{ '/assets/js/lunr/lunr.min.js' | absolute_url }}"></script>
   <script defer src="{{ '/assets/js/lunr/lunr-store.js' | absolute_url }}"></script>
   <script defer src="{{ '/assets/js/lunr/lunr-' | append: lang | append: '.js' | absolute_url }}"></script>
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "a22cb45f74bf88";
+    wcs_do();
+  </script>
 {% endif %}
 
 {% include analytics.html %}
