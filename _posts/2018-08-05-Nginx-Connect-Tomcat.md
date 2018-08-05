@@ -2,11 +2,11 @@
 title: 리눅스(CentOS7)에서 자바 개발환경 구축하기 - Nginx와 Tomcat연동
 date: 2018-08-05 16:34:00 +0900
 tags: 
-		- Linux
-		- centOS7
-		- Tomcat
-		- Nginx
-		- setting_environment
+- Linux
+- centOS7
+- Tomcat
+- Nginx
+- setting_environment
 ---
 
 # 개요
