@@ -185,13 +185,13 @@ Tomcat을 사용하는데 왜 Nginx를 굳이 쓸까? 하는 이유를 갖는 �
 
 즉, 사용자의 Http 요청은 Http Server(= Web Server)로 받은 후에 다시 웹서버가 WAS에 필요한 내용을 전달한 후에 WAS에서 처리 후에 다시 웹서버가 클라이언트에게 표현하는 식으로 구현하는 것이다. 
 
-![웹서버와 WAS의 처리 방법](~https://t1.daumcdn.net/cfile/tistory/156A50404F93CDE817~)
+![웹서버와 WAS의 처리 방법](../assets/images/EFD108B9-A993-4AFA-8473-4EDF05EE6AD6.png)
 
-해당 내용은 이미지인 출처인 [WAS와 웹서버의 차이](~http://gap85.tistory.com/45~)에서 자세하게 확인할 수가 있다. 간단하게 설명하자면, 톰캣은 동적 서버콘텐츠를 수행하고, 웹서버는 정적 서버콘텐츠를 수행한다는 점이다.
+해당 내용은 이미지인 출처인 [WAS와 웹서버의 차이](http://gap85.tistory.com/45)에서 자세하게 확인할 수가 있다. 간단하게 설명하자면, 톰캣은 동적 서버콘텐츠를 수행하고, 웹서버는 정적 서버콘텐츠를 수행한다는 점이다.
 
 그리고 Nginx는 가장 큰 장점인 매우 쉬운 가상호스트 설정으로 하나의 서버에서 여러개의 웹서버를 구동함하는 장점을 갖는다.
 
-![Nginx 가상호스트](~https://www.lesstif.com/download/attachments/24445674/image2015-5-21%2023%3A49%3A2.png?version=1&modificationDate=1432218988000&api=v2~)
+![Nginx 가상호스트](../assets/images/EF22FD5B-744C-4780-9D1A-BCF9FF7AEDB8.gif)
 
 위의 도식표를 보면 이해가 될 것이다.
 사용자가 news에 대한 요청을 하면 해당 도메인에 엮인 부분을 Nginx가 읽고, 해당 디렉토리에 있는 콘텐츠를 응답하고, blog에 대한 질의를 하면 blog 디렉토리에 있는 콘텐츠를 응답한다.
@@ -199,7 +199,7 @@ Tomcat을 사용하는데 왜 Nginx를 굳이 쓸까? 하는 이유를 갖는 �
 그리고 Reverse Proxy는 액세스 포인트를 주어서 각기 다른 도메인을 사용해도, 한 액세스 포인트에서 로그관리와 클라이언트 요청에 맞게 url 매핑을 하는 기능을 수행한다.
 
 아래의 그림을 보자.
-![Nginx 리버스프록시](~http://akal.co.kr/wordpress/wp-content/uploads/2016/05/diagram002.png~)
+![Nginx 리버스프록시](../assets/images/CF80CCA8-CE9D-4D9E-8B08-918D6F03CEAA.png)
 
 위와 같은 도식을 통해서 Reverse Proxy의 장점을 정리하자면 아래와 같이 볼 수가 있다.
 
@@ -227,7 +227,7 @@ Tomcat을 사용하는데 왜 Nginx를 굳이 쓸까? 하는 이유를 갖는 �
 ```
 
 이후 Nginx의 설정파일인 Nginx.conf를 수정하는데 자세한 내용은 
-[Nginx의 기본 구성](~http://technerd.tistory.com/19~)으로 대체하겠다.
+[Nginx의 기본 구성](http://technerd.tistory.com/19)으로 대체하겠다.
 만일 필요하다면 필요한 부분을 따로 포스팅하도록 하겠다.
 
 주요 설정 부분만 정리하자면 아래와 같다.
@@ -239,7 +239,7 @@ Tomcat을 사용하는데 왜 Nginx를 굳이 쓸까? 하는 이유를 갖는 �
 **max_clients**= **worker_processes** * **worker_connections**
 
 기본 설정예시는
-[Nginx Full Example Configuration](~https://www.nginx.com/resources/wiki/start/topics/examples/full/#nginx-conf~)을 참고할 수 있다.
+[Nginx Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/#nginx-conf)을 참고할 수 있다.
 
 필자는 이런식으로 사용하고 있다.
 ```console
@@ -435,6 +435,10 @@ location ~ \.(jsp|do)$ {
 ```
 위의 코드를 통하여 해당 질의를 수행한다고 볼 수가 있다.
 이렇게 설정된 리버스프록시는 톰캣은 동적인 처리를 맡고, Nginx는 정적 처리를 맡음으로서 부하 분산을 할 수 있다는 장점이 있다!
+
+다음장에서는 아래와 같은 멀티도메인 리버스프록시 도식과 같은 서버를 구축해보는 것을 무중단 배포 구현을 통해서 해보도록 하겠다.
+![mulit-domain-reverse-proxy](../assets/images/D6A49F05-D5B6-4978-8CA9-590EC0EEEC83.png)
+
 - - - -
 # REFERENCE
 1. [Yum 저장소 추가하기](https://conory.com/blog/42596)
