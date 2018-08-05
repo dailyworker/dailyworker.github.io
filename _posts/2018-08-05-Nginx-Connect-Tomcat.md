@@ -27,8 +27,8 @@ tags:
 + REFERENCE
 - - - -
 ## STEP 1 - Nginx설치하기
-### STEP 1.1 - Install Nginx using webtatic repo **(비추천)**
 
+### STEP 1.1 - Install Nginx using webtatic repo **(비추천)**
 이번에는 바이너리 파일을 다운로드해서 설치하는게 아니라 webtatic이라는 프로그램을 통해서 최신 프로그램을 설치해보도록 하겠다.
 - - - -
 #### STEP 1.1.1 EPEL설치하기
