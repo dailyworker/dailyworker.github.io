@@ -18,9 +18,9 @@ tags:
 + STEP 1 - Nginx설치하기
    + STEP 1.1 - Install Nginx using webtatic repo **(비추천)**
      + STEP 1.1.1 EPEL 설치하기
-	 + STEP 1.1.2 Webatic 저장소 설치하기
-	 + Troubleshooting 
-   + SETP 1.2 - Install Nginx using Nginx official repo **(추천)**
+     + STEP 1.1.2 Webatic 저장소 설치하기
+     + Troubleshooting 
+   + SETP 1.2 - Install Nginx using Nginx official repo **(추천)**
 + STEP 2 - Nginx를 사용하는 이유
 	+ STEP 2.1 - Nginx 가상호스트 설정 **(참고만 하자)**
 	+ STEP 2.2 - Nginx reverse proxy Tomcat에 적용
