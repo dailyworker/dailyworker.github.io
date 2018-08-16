@@ -273,4 +273,5 @@ UML을 이용하여 클래스와 객체에 대한 정보를 명세한다.
 
 # REFERENCE
 1. [GoF의 디자인 패턴 개정판](http://www.yes24.com/24/Goods/17525598?Acode=101)
+
 [^1] : [Software design pattern - Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern)
