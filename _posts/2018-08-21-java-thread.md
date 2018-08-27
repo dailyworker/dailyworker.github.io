@@ -1,5 +1,5 @@
 ---
-title: Java Thread - 자바 쓰레드 (미완)
+title: Java Thread - 자바 쓰레드
 date: 2018-08-21 19:00:00 +0900
 tags: 
 - Java
@@ -29,13 +29,8 @@ tags:
 	+ STEP 2.7 쓰레드의 동기화 
 		+ STEP 2.7.1 synchronized를 이용한 동기화
 		+ STEP 2.7.2 wait()와 notify()
-		+ STEP 2.7.3 Lock과 Condition을 이용한 동기화
 + STEP 3. 캐시와 메모리간의 값의 불일치 해결
 	+ STEP 3.1 volatile
-+ STEP 4. fork & join 프레임웍
-	+ STEP 4.1 compute()의 구현 
-	+ STEP 4.2 다른 쓰레드의 작업 훔치기
-	+ STEP 4.3 fork()와 join()
 
 ## STEP 1. 프로세스와 멀티 쓰레드란? 
 **프로세스** 란? 실행 중인 하나의 어플리케이션 (ex : 크롬을 새 창으로 2개를 띄웠다면, 2개의 프로세스가 실행 중이라 말할 수가 있다.)
@@ -770,10 +765,354 @@ public void start() { th.start(); }
 이 전의 예제에 yield()와 intererupt()를 추가한 예제이다.
 
 #### STEP 2.6.5 join()
+**join()** 메소드는 **다른 쓰레드의 종료를 기다리는 것** 이다. 
 
+이후에 살펴볼 _synchronized_ 사용법에서 wait()와 notify()를 사용하는 것과 흡사하다고 볼 수 있다.
+
+아래 예제를 보자
+```java
+    public class ThreadEx19 extends Thread{
+        public void run(){
+            for(int i = 0; i < 5; i++){
+                System.out.println("MyThread5 : "+ i);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        } // run
+    }
+```
+
++ 위의 코드는 1초씩 쉬면서 숫자를 출력하는 부분이다.
+
+```java
+public class JoinExam { 
+        public static void main(String[] args) {
+            MyThread5 thread = new MyThread5();
+            // Thread 시작 
+            thread.start(); 
+            System.out.println("Thread가 종료될때까지 기다립니다.");
+            try {
+                // 해당 쓰레드가 멈출때까지 멈춤
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Thread가 종료되었습니다."); 
+        }   
+    }
+```
+
++ 위의 코드는 Join()문을 활용하여 쓰레드가 종료할 때까지 대기하는 코드이다. 
+
+자세한 내용은 바로 뒤에 _synchronized_ 을 정리하면서 wait()와 notify()와 비교하기로 해보겠다.
+
+### STEP 2.7 쓰레드의 동기화 
+싱글쓰레드 환경에서는 한 개의 쓰레드가 객체를 독차지해서 사용하면 되지만, 멀티 쓰레드 환경에서는 **쓰레드들이 객체를 공유해서 작업** 해야하는 경우가 있으며, 이렇게 공유 자원으로 쓰이는 영역을 유식하게 **임계영역(Critical Section) [^2]** 이라한다.
+이를 해결하기 위해서 나온 개념이 **세마포어(Semaphore) [^3], 상호배제(Mutex) [^4]** 등이 있다.
+
+공유 자원을 사용하게 될 때 무슨 문제가 나오길래 이런 해법들이 나타나게 된 것일까?
+그것을 알기위해서 아래 예제를 돌려보자.
+
++ MultiThreadCollisionEx.java
+
+```java
+public class MultiThreadCollisionEx {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+ 
+        User1 user1 = new User1();
+        user1.setCalculator(calc);
+        user1.start();
+ 
+        User2 user2 = new User2();
+        user2.setCalculator(calc);
+        user2.start();
+    }
+}
+```
+
++ Calculator.java
+
+```java
+public class Calculator {
+    private int memory;
+ 
+    public int getMemory() {
+        return memory;
+    }
+ 
+    public void setMemory(int memory) {
+        this.memory = memory;
+        try {
+            Thread.sleep(2000); // 2초간 sleep
+        } catch (Exception e) {
+        }
+ 
+        System.out.println(Thread.currentThread().getName() + ": " + this.memory);
+    }
+}
+```
+
++ User1.java
+
+```java
+public class User1 extends Thread {
+    private Calculator calc;
+ 
+    public void setCalculator(Calculator calc) {
+        this.setName("calcUser1");
+        this.calc = calc;
+    }
+ 
+    public void run() {
+        calc.setMemory(100);
+    }
+}
+```
+
++ User2.java
+
+```java
+public class User2 extends Thread {
+    private Calculator calc;
+ 
+    public void setCalculator(Calculator calc) {
+        this.setName("calcUser2");
+        this.calc = calc;
+    }
+ 
+    public void run() {
+        calc.setMemory(50);
+    }
+ 
+}
+```
+
+
+실행해보면 분명 User1에서 setMemory(100)을 실행했으나 User2에서 객체에 접근하면서 _(setMemory(50))_객체 값이 바뀌면서 User1이 사용하던 객체의 값도 바뀌는 것을 확인할 수가 있다.
+
+**어떻게 해결할 수가 있을까?**
+바로 **동기화 메소드 및 동기화 블록** 을 사용해서 해결할 수가 있다.  동기화 메소드 및 동기화 블록은 **현재 데이터를 사용하고 있는 해당 쓰레드를 제외하고, 나머지 쓰레드들은 데이터에 접근할 수 없도록 막기위한 것** 라고 볼 수가 있다. 
+이런 것을 **thread-safe** 환경을 만든다고 한다.
+
+#### STEP 2.7.1 synchronized를 이용한 동기화
+
+위에서 말한 동기화 메소드 및 동기화 블록을 Java에서 어떻게 제공할까? 
+바로 **동기화 키워드(Synchronized)** 를 이용하여 제공한다.
+
+하지만 명심해야할 점은 **동기화 키워드를 남용할 경우에는 오히려 프로그램 성능이 저하된다는 것이다.**
+
+그렇다면 자바코드에서는 어떻게 사용할까? 아래를 참고하자.
+
+```java
+ //동기화 메소드 사용
+ public synchronized void method() {
+		//코드
+ }
+```
+
+```java
+ //객체 변수에 사용하는 경우
+private Object sharedObj = new Object();
+public void method(){
+	synchronized(sharedObj){
+		//코드
+	}
+}
+```
+
+이것을 응용하여, 위의 공유자원 문제를 해결한 소스코드를 보자. 
+
++ 수정한 Calculator.java 
+```java
+public class Calculator {
+    private int memory;
+ 
+    public int getMemory() {
+        return memory;
+    }
+ 	  //메소드 동기화처리
+    public synchronized void setMemory(int memory) {
+        this.memory = memory;
+        try {
+            Thread.sleep(2000); // 2초간 sleep
+        } catch (Exception e) {
+        }
+ 
+        System.out.println(Thread.currentThread().getName() + ": " + this.memory);
+    }
+}
+```
+
+#### STEP 2.7.2 wait()와 notify(), notifyAll()
+
+wait()와 notify()는 동기화블록 안에서 사용되는 상태제어 메소드이다.
+위에서 봤던 join()과 같은 역할을 한다고 볼 수가 있다. 
+
+일단, 먼저 함수의 원형부터 보자.
+
++ public final void wait(long timeout) throws interruptedException
++ public final void wait(long timeout, int nanos) throws interruptedException
++ public final void wait() throws interruptedException
++ public final void notifyAll()
++ public final void notify() 
+
+차이는 "final이라는 키워드와 wait에는 Exception이 전부 붙어 있구나"정도만 봐도 된다.
+
+**wait()** 는 기다리는 뜻이며, **notify()** 는 알리다라는 뜻이다.
+즉, wait()는 동기화된 공유자원에 접근할 때 동기화된 공유자원을 다른 쓰레드가 사용하고 있다면 기다리라는 신호이며, 해당 쓰레드가 공유자원을 다 사용하고 나면 이 자원을 wait하고 있는 쓰레드가 있다면 사용하라고 알리는 용도(notify)이다.
+
+이 부분은 운영체제에서 Dead Lock에 관한 선행지식이 없다면 이해하기가 좀 힘들 수가 있는데 일단 위에서 말한대로 하나의 공유자원에 여러 개의 쓰레드가 접근하게 되면 문제가 발생할 수 있다는 것을 기억한다면 아래를 이해해보도록 한다. 
+
++ 하나의 공유자원에 여러 개의 쓰레드가 몰리게되는 현상 -> 병목현상(Bottle Neck) [^5] 발생 -> 여기서 문제가 생기면 교착상태(Dead Lock) [^6] 발생 
++ 이때 synchronized를 사용하여 만일 한 쓰레드가 공유자원을 사용한다면, 그 자원을 잠궈서 다른 쓰레드가 접근하지 못하도록 함.
++ 그러나 이 키워드만으로는 부족 -> wait()와 notify() 메소드를 이용하여 미세한 제어 수행 
+
+중요한 점은 한 쓰레드가 공유자원을 사용시 시에 다른 쓰레드에게 나중에 쓰라고 말하는 것이 wait()이고, 대기 상태인 쓰레드가 실행상태가 되는 메소드는 notify()와  notifyall()이라고 볼 수가 있다.
+
+아래 간단한 예시를 동작시켜보자
+
+```java
+import java.util.*;
+
+class SyncStack{
+	private Vector buffer = new Vector();
+	public synchronized char pop(){
+		char c;
+		while(buffer.size()==0){
+		try{
+			System.out.println("stack대기:");
+			this.wait();
+		}catch(Exception e){}
+	}
+	Character cr = ((Character)buffer.remove(buffer.size()-1));
+	c = cr.charValue();
+	System.out.println("stack삭제:" + c);
+	return c;
+}
+
+public synchronized void push(char c){
+	this.notify();
+	Character charObj = new Character(c);
+	buffer.addElement(charObj);
+	System.out.println("stack삽입:" + c);
+	}
+}
+
+class PopRunnable extends Thread{
+	public void run(){
+		SyncTest.ss.pop();
+	}
+}
+
+class PushRunnable extends Thread{
+	private char c;
+	
+	public PushRunnable(char c){
+	this.c =c;
+	}
+
+	public void run(){
+		SyncTest.ss.push(c);
+	}
+}
+
+public class SyncTest {
+	public static SyncStack ss =new SyncStack();
+	public static void main(String[] args){
+
+	//SyncStack에 5데이터삽입
+
+	new PushRunnable('J').start();
+	new PushRunnable('A').start();
+	new PushRunnable('B').start();
+	new PushRunnable('O').start();
+	new PushRunnable('O').start();
+
+	new PopRunnable().start();//O
+	new PopRunnable().start();//O
+	new PopRunnable().start();//B
+	new PopRunnable().start();//A
+	new PopRunnable().start();//J
+
+	new PopRunnable().start();//대기상태
+
+	try{
+		Thread.sleep(5000);
+	}catch(Exception e){}
+		System.out.println("===== passed 5 seconds======");
+	new PushRunnable('K').start();
+	}
+}
+```
+
+위의 예시는 5개 값을 집어 넣고, 6개를 추출하는 것이다.
+따라서 마지막 pop 연산은 push를 기다리는 wait상태가 되고, 임의의 시점에서 문자가 삽입되서 notify해주면 wait에서 깨어나서 다시 pop작업을 하는 예제이다.
+
+## STEP 3. 캐시와 메모리간의 값의 불일치 해결
+먼저 volatile은 멀티쓰레딩 환경에서 동기화 해주는 것이다.
+즉, 읽기 쓰기시에 어떤 스레드가 값을 변경하든 항상 최신값을 읽게 해준다. 
+이 부분은 syncronized키워드와 같아보이지만 아래 설명하면서 차이점을 서술해보도록 하겠다.
+
+**캐시와 메모리간의 값의 불일치 해결** 어려운 말이지만 생각을 잘하면 쉽다.
+
+> int count = 10;   
+
+이라는 변수를 선언하고, 쓰레드 A와 B가 사용한다고 가정한다.
+A쓰레드가 count를 읽어 조작하고, B쓰레드도 같이 count를 읽어 조작한다.
+이 경우에는 두 쓰레드간에 count의 값은 서로 동일한 값(서로 다른 메모리 주소)을 가르키지 않는다.
+
+**쓰레드가 자신만의 저장 영역에 원본의 값을 복사하여 조작하기 때문이다.**
+그래서 쓰레드마다 count는 다른 값을 가지고 있을 수 있다.
+따라서 **A에서 조작한 값을 B에서는 읽을 수 없는 현상이 생길 수가 있다.**
+
+그리고 쓰레드 작업이 끝난 후에 조작한 값을 원래 값으로 돌리는데 그 작업이 끝나지 않거나 **배치 최적화(reordering)** 등으로 그러지 않을 수가 있다. 
+
+이런 경우들 때문에 변수 count는 쓰레드간 값 불일치가 발생한다.
+
+
+### STEP 3.1 volatile
+위에서 말한 쓰레드간 값 불일치 이유중에서도 배치 최적화를 회피하는 방법이 있는데 
+그것이 바로 **volatile** 키워드이다.
+
+프로그래머가 코드를 작성하고 컴파일을 하면 컴파일 과정에서 좀 더 빠르게 실행될 수 있도록 최적화하는 것을 리오더링이라 한다. 
+
+이것은 위에 말한 것과 같이 멀티쓰레드 환경에서는 읽기와 쓰기의 순서가 바뀌면서, 문제가 발생할 수가 있다. volatile 변수를 사용하면 리오더링에서 제외되며, 항상 프로그래머가 지정한 순서로 읽기 및 쓰기를 수행한다.
+
+그렇다면? syncronized와 차이점은 무엇일까? 
+바로 원자성에 있다. 
+
+int보다 큰 경우에 (JVM 환경에 따라 다르지만) long과 double을 선언할 때 예시를 통해서 설명해보겠다. 
+
+> long stat = 324L;  
+
+이러한 코드를 선언했을 때, long은 데이터형이 8바이트 즉, 64비트이다. 이때 해당 JVM이 32비트 단위로 끊어서 할당한다고 가정한다면 첫 32비트 할당 + 32비트 할당으로 두번의 작업으로 선언이 되는 것이다. 
+
+**하지만 첫 32비트 할당시에 다른 쓰레드가 값을 읽어간다면? **
+바로 문제가 발생한다.
+
+하지만 volatile 키워드를 stat에 선언하면 할당이 원자성을 갖게되어 문제가 발생하지 않는다.
+
+그렇다면? syncronized와 차이점은 무엇인가?
+
+> int val = stat + 10;  
+
+이러한 변수를 선언했다고 가정한다면 volatile 선언을 해도 thread-safe가 아니다.
+쓰레드의 접근 순서에 따라 어떤 쓰레드는 10을 더한 값을 가져가기도, 안하기도 한 값을 읽기도 한다. 
+
+위 작업은 원자성이 깨지기때문이다.
+즉, **stat를 int로 캐스팅 + 10을 더하고 + val에 대입 ** 이 세가지 연산이 돌아가기때문인데 이때, syncronized 키워드는 작업의 원자성을 주어 이러한 문제를 해결한다.
 
 
 # REFERENCE 
 [프로세스와 스레드의 차이](https://brunch.co.kr/@kd4/3)
 
 [^1] : [Context switch - Wikipedia](https://en.wikipedia.org/wiki/Context_switch)
+[^2] : [Critical section - Wikipedia](https://en.wikipedia.org/wiki/Critical_section)
+[^3] : [Semaphore (programming) - Wikipedia](https://en.wikipedia.org/wiki/Semaphore_(programming))
+[^4] : [Lock (computer science) - Wikipedia](https://en.wikipedia.org/wiki/Lock_(computer_science))
+[^5] : [Bottleneck (software) - Wikipedia](https://en.wikipedia.org/wiki/Bottleneck_(software))
+[^6] : [Deadlock - Wikipedia](https://en.wikipedia.org/wiki/Deadlock)
