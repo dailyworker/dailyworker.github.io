@@ -1110,9 +1110,9 @@ int보다 큰 경우에 (JVM 환경에 따라 다르지만) long과 double을 �
 # REFERENCE 
 [프로세스와 스레드의 차이](https://brunch.co.kr/@kd4/3)
 
-[^1] : [Context switch - Wikipedia](https://en.wikipedia.org/wiki/Context_switch)
-[^2] : [Critical section - Wikipedia](https://en.wikipedia.org/wiki/Critical_section)
-[^3] : [Semaphore (programming) - Wikipedia](https://en.wikipedia.org/wiki/Semaphore_(programming))
-[^4] : [Lock (computer science) - Wikipedia](https://en.wikipedia.org/wiki/Lock_(computer_science))
-[^5] : [Bottleneck (software) - Wikipedia](https://en.wikipedia.org/wiki/Bottleneck_(software))
-[^6] : [Deadlock - Wikipedia](https://en.wikipedia.org/wiki/Deadlock)
+[^1]:[Context switch - Wikipedia](https://en.wikipedia.org/wiki/Context_switch)
+[^2]:[Critical section - Wikipedia](https://en.wikipedia.org/wiki/Critical_section)
+[^3]:[Semaphore (programming) - Wikipedia](https://en.wikipedia.org/wiki/Semaphore_(programming))
+[^4]:[Lock (computer science) - Wikipedia](https://en.wikipedia.org/wiki/Lock_(computer_science))
+[^5]:[Bottleneck (software) - Wikipedia](https://en.wikipedia.org/wiki/Bottleneck_(software))
+[^6]:[Deadlock - Wikipedia](https://en.wikipedia.org/wiki/Deadlock)
