@@ -1109,7 +1109,14 @@ int보다 큰 경우에 (JVM 환경에 따라 다르지만) long과 double을 �
 
 
 # REFERENCE 
-[프로세스와 스레드의 차이](https://brunch.co.kr/@kd4/3)
+1. [프로세스와 스레드의 차이](https://brunch.co.kr/@kd4/3)
+2. [Java - (멀티쓰레딩 4) 쓰레드에서 값 반환](http://hochulshin.com/java-multithreading-returning-values-from-task/)
+3. [Java - (멀티쓰레딩 9) 쓰레드 Join하기](http://hochulshin.com/java-multithreading-thread-join/)
+4. [Java 멀티 스레드 - 우선순위, 동기화 메소드](http://palpit.tistory.com/728)
+5. [JAVA - wait(), notify(), notifyAll()원형](http://ayonc.tistory.com/33) 
+6. [자바에서의 volatile 키워드](http://blog.javarouka.me/2012/04/volatile-keyword-in-java.html)
+
+---
 
 [^1]:[Context switch - Wikipedia](https://en.wikipedia.org/wiki/Context_switch)
 [^2]:[Critical section - Wikipedia](https://en.wikipedia.org/wiki/Critical_section)
