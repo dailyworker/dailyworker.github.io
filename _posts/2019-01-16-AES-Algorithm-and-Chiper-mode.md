@@ -260,7 +260,7 @@ AES 알고리즘의 내부에는 Add Round Key, Sub Byte, Mix Column의 반복�
 
 $$\begin{bmatrix} 02 & 03 & 01 & 01 \\ 01 & 02 & 03 & 01 \\ 01 & 01 & 02 & 03 \\ 03 & 01 & 01 & 02\end{bmatrix} * \begin{bmatrix} S \end{bmatrix} = \begin{bmatrix} S' \end{bmatrix} $$
 
-   위의 행렬을 두고, 계산 형태를 보여줄텐데 이 계산은 두 가지 형태로 계산 된다.
+   위의 행렬을 두고, 계산 형태를 보여줄텐데 이 계산은 두 가지 형태로 계산 된다.d
    
    + **실제 행렬 곱셈을 아래와 같이 진행.** <br>
 
