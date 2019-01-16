@@ -633,16 +633,18 @@ public class Decryption {
 8. [Advanced Encryption Standard(AES), Federal Information Processing    Standards Publication  197,  Nov.  2001](http://jima.me/wp-content/uploads/2016/05/Advanced-Encryption-Standard-Wikipedia-the-free-encyclopedia.pdf)
 9. [[Java] PKCS7padding NoSuchAlgorithmException - Tistroy](http://devbible.tistory.com/451)
 
-+ [^1] : [Rainbow Table - Wikipedia](https://en.wikipedia.org/wiki/Rainbow_table)
-+ [^2] : [Dictionary Attack - Wikipedia](https://en.wikipedia.org/wiki/Dictionary_attack)
-+ [^3] : [Salt(cryptography) - Wikipedia](https://en.wikipedia.org/wiki/Salt_(cryptography))
-+ [^4] : [Brute-force Attack - Wikipedia](https://en.wikipedia.org/wiki/Brute-force_attack)
-+ [^5] : [Key derivation function - Wikipedia](https://en.wikipedia.org/wiki/Key_derivation_function)
-+ [^6] : [대칭 키 암호 - 위키백과](https://ko.wikipedia.org/wiki/%EB%8C%80%EC%B9%AD_%ED%82%A4_%EC%95%94%ED%98%B8)
-+ [^7] : [공개 키 암호 방식 - 위키백과](https://ko.wikipedia.org/wiki/%EA%B3%B5%EA%B0%9C_%ED%82%A4_%EC%95%94%ED%98%B8_%EB%B0%A9%EC%8B%9D)
-+ [^8] : NIST Computer Security Division's (CSD) Security Technology Group (STG) (2013). "Block cipher modes". Cryptographic Toolkit. NIST. Archived from the original on November 19, 2012. Retrieved April 12, 2013.
-+ [^9] : Cryptography Engineering: Design Principles and Practical Applications. Ferguson, N., Schneier, B. and Kohno, T. Indianapolis: Wiley Publishing, Inc. 2010. pp. 63, 64. ISBN 978-0-470-47424-2.
-+ [^10] : [초기화 벡터 - 위키백과](https://ko.wikipedia.org/wiki/%EC%B4%88%EA%B8%B0%ED%99%94_%EB%B2%A1%ED%84%B0)
-+ [^11] : Kuo-Tsang Huang, Jung-Hui Chiu, and Sung-Shiou Shen (January 2013). "A Novel Structure with Dynamic Operation Mode for Symmetric-Key Block Ciphers" (PDF). International Journal of Network Security & Its Applications (IJNSA). 5 (1): 19. Archived (PDF) from the original on 2015-11-22.
-+ [^12] : Kuo-Tsang Huang, Jung-Hui Chiu, and Sung-Shiou Shen (January 2013). "A Novel Structure with Dynamic Operation Mode for Symmetric-Key Block Ciphers" (PDF). International Journal of Network Security & Its Applications (IJNSA). 5 (1): 19. Archived (PDF) from the original on 2015-11-22.
-+ [^13] : B. Moeller (May 20, 2004), Security of CBC Ciphersuites in SSL/TLS: Problems and Countermeasures, archived from the original on June 30, 2012
+
+
+[^1]:[Rainbow Table - Wikipedia](https://en.wikipedia.org/wiki/Rainbow_table)
+[^2]:[Dictionary Attack - Wikipedia](https://en.wikipedia.org/wiki/Dictionary_attack)
+[^3]:[Salt(cryptography) - Wikipedia](https://en.wikipedia.org/wiki/Salt_(cryptography))
+[^4]:[Brute-force Attack - Wikipedia](https://en.wikipedia.org/wiki/Brute-force_attack)
+[^5]:[Key derivation function - Wikipedia](https://en.wikipedia.org/wiki/Key_derivation_function)
+[^6]:[대칭 키 암호 - 위키백과](https://ko.wikipedia.org/wiki/%EB%8C%80%EC%B9%AD_%ED%82%A4_%EC%95%94%ED%98%B8)
+[^7]:[공개 키 암호 방식 - 위키백과](https://ko.wikipedia.org/wiki/%EA%B3%B5%EA%B0%9C_%ED%82%A4_%EC%95%94%ED%98%B8_%EB%B0%A9%EC%8B%9D)
+[^8]:NIST Computer Security Division's (CSD) Security Technology Group (STG) (2013). "Block cipher modes". Cryptographic Toolkit. NIST. Archived from the original on November 19, 2012. Retrieved April 12, 2013.
+[^9]:Cryptography Engineering: Design Principles and Practical Applications. Ferguson, N., Schneier, B. and Kohno, T. Indianapolis: Wiley Publishing, Inc. 2010. pp. 63, 64. ISBN 978-0-470-47424-2.
+[^10]:[초기화 벡터 - 위키백과](https://ko.wikipedia.org/wiki/%EC%B4%88%EA%B8%B0%ED%99%94_%EB%B2%A1%ED%84%B0)
+[^11]:Kuo-Tsang Huang, Jung-Hui Chiu, and Sung-Shiou Shen (January 2013). "A Novel Structure with Dynamic Operation Mode for Symmetric-Key Block Ciphers" (PDF). International Journal of Network Security & Its Applications (IJNSA). 5 (1): 19. Archived (PDF) from the original on 2015-11-22.
+[^12]:Kuo-Tsang Huang, Jung-Hui Chiu, and Sung-Shiou Shen (January 2013). "A Novel Structure with Dynamic Operation Mode for Symmetric-Key Block Ciphers" (PDF). International Journal of Network Security & Its Applications (IJNSA). 5 (1): 19. Archived (PDF) from the original on 2015-11-22.
+[^13]:B. Moeller (May 20, 2004), Security of CBC Ciphersuites in SSL/TLS: Problems and Countermeasures, archived from the original on June 30, 2012
