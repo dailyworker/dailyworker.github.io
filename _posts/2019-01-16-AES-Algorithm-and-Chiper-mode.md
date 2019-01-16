@@ -156,7 +156,10 @@ PBKDF2는 NIST(미국표준기술연구소)에 의해서 승인된 알고리즘�
 
    이는 아래 사진과 같다.
 
-   ![대칭 키 암호 방식](/assets/images/tomcat.png)
+<div style="text-align: center">
+<img src ="https://dailyworker.github.io/assets/images/symmetric-key%20algorithm.jpg"/>
+</div>
+   
 
    그리고 사진에서 말하는 대칭 키 알고리즘에 바로 **AES 알고리즘**이 포함되어있다.
 
@@ -168,7 +171,9 @@ PBKDF2는 NIST(미국표준기술연구소)에 의해서 승인된 알고리즘�
 
    이는 아래 사진과 같습니다.
 
-   ![공개 키 암호 방식](/assets/images/tomcat.png)
+<div style="text-align: center">
+<img src ="https://dailyworker.github.io/assets/images/public-key_algorithm.jpg"/>
+</div>
 
    대칭 키 방식은 흔히 우리가 알고 있는 자물쇠를 생각하면 된다.
    즉, 키를 잃어버리게 되면 잠긴 자물쇠는 풀 수가 없는 것이다.
@@ -194,10 +199,13 @@ PBKDF2는 NIST(미국표준기술연구소)에 의해서 승인된 알고리즘�
 AES 알고리즘의 내부에는 Add Round Key, Sub Byte, Mix Column의 반복으로 이루어진다.<br> 동영상으로 보기 쉽게 보고 싶다면, [AES Rijndael Cipher explained as a Flash animation](https://www.youtube.com/watch?v=gP4PqVGudtg)를 추천한다.<br><br>
 
 일단, **AES-128, AES-192, AES-256**이라는 단어를 많이 들어봤을 텐데 그것은 키의 길이로 결정된다. 3종류의 키를 사용할 수 있는데 라운드 함수 또한, 128bit 키 사용시에는 10라운드, 192bit에서는 12라운드, 256bit에서는 14라운드를 실행한다.<br>
-전체적인 알고리즘은 아래의 사진과 같다.
+전체적인 알고리즘은 아래의 사진과 같다. (왼쪽 : 암호화, 오른쪽 : 복호화)
 <br>
-![AES 암호화](/assets/images/ "이미지제목") {:.alignleft}
-![AES 복호화](/assets/images/ "이미지제목") {:.alignleft}
+<div style="text-align: left"><img src="https://dailyworker.github.io/assets/images/AES-Encryption.jpg" />
+<img src ="https://dailyworker.github.io/assets/images/AES-Decryption.jpg"/>
+</div>
+<div style="text-align: letf">
+</div>
 <br>
 그리고 AES 알고리즘 라운드 내부에서는 4가지 연산이 존재한다.
 1개의 자리바꿈 연산과 3개의 치환 연산인데<br><br>
@@ -214,12 +222,16 @@ AES 알고리즘의 내부에는 Add Round Key, Sub Byte, Mix Column의 반복�
    이 상태는 항상 4행으로 구성되며, 각 행은 $N_B$ 바이트로 구성된다. 
    AES에서 입력을 상태로 변환하는 방법은 아래 사진과 같다.
 
-   ![AES 복호화](/assets/images/ "이미지제목") {:.alignmiddle}
+<div style="text-align: center">
+<img src ="https://dailyworker.github.io/assets/images/inputTostr.PNG"/>
+</div>
 
    예를 들어 128 비트 입력이 아래와 같다면, 결과 상태는 사진처럼 나온다.
 >EA835CF00445332D655D98AD8596B0C5
 
-   ![AES 복호화](/assets/images/ "이미지제목") {:.alignmiddle} 
+<div style="text-align: center">
+<img src ="https://dailyworker.github.io/assets/images/16bitToState.PNG"/>
+</div>
 
    2. **S-Box 치환**
    
@@ -305,11 +317,11 @@ AES는 블록 암호 작동 모드(block cipher mode of operation)와 결합이�
    간단하게 설명하자면 **암호 블록 사이즈와 데이터 사이즈가 맞지 않을 경우에 배수에 맞춰 빈공간을 채워주는 방식이라고 볼 수가 있다.**
 
    아래 PKCS#5와 PKCS#7의 예시를 보자.
-   + PKCS#5
+   + **PKCS#5**
       암호 블록 사이즈가 8바이트에 맞춰져있다.
       8바이트의 배수로 인풋을 맞춰줘야하는데 패딩에 들어가는 문자는 패딩할 갯수가 들어간다.
 
-      + 예시 
+      + 예시 <br>
       AA 07 07 07 07 07 07 07  :  1바이트 데이터 + 7바이트 패딩 
       AA BB 06 06 06 06 06 06  :  2바이트 데이터 + 6바이트 패딩 
       AA BB CC 05 05 05 05 05  :  3바이트 데이터 + 5바이트 패딩 
@@ -317,7 +329,7 @@ AES는 블록 암호 작동 모드(block cipher mode of operation)와 결합이�
 
       AA A9 A8 A7 A6 A5 A4 A3 08 08 08 08 08 08 08 08  :  8바이트 데이터 + 8바이트 패딩 
 
-   + PKCS#7  
+   + **PKCS#7**  
       패딩할 숫자만큼 패딩 값을 채워넣어서 붙여주는 것은 PKCS#5와 동일.
       따라서, 8바이트의 암호화 블럭 크기인 경우 **PKCS#5 = PKCS#7**이다.
       하지만 현대의 암호화에서는 당연히 더 긴 암호화 블럭을 사용하기 때문에 달라진다.
@@ -328,26 +340,31 @@ AES는 블록 암호 작동 모드(block cipher mode of operation)와 결합이�
       (8바이트인 경우 08을 패딩 8번 하듯이 10으로 패딩 16번을 수행한다.)
       PKCS#7은 최대 가능한 패딩은 FF이므로, 255개가 된다. 
 
-   **두 개의 차이라 하면, PKCS#5는 8바이트 고정길이, PKCS#7은 1~255바이트의 가변길이이다.**
+   **두 개의 차이라 하면, PKCS#5는 8바이트 고정길이, PKCS#7은 1~255바이트의 가변길이이다.**<br><br>
 
 
 + **Common  modes**
    위에서 설명한 내용을 토대로 그러면 어떠한 방식의 블록 암호 운용 방식이 존재하는지 설명하고자 한다. 여기서의 핵심은 **"블록 암호는 특정한 길이의 블록 단위로 동작하기 때문에, 가변 길이 데이터를 암호화하기 위해서는 먼저 이들을 단위 블록들로 나누어야 하며, 그리고 그 블록들을 어떻게 암호화할지를 정해야 한다."** 이다. 
    간단히 얘기하자면, **모드는 블럭 암호화 순서 및 규칙에 대한 표준이라고 보면 될 거 같다.** <br><br>
-   + ECB(Electronic CodeBook)
+   + **ECB(Electronic CodeBook)**
       가장 간단한 운용 방식을 가지며, 암호화하려는 평문 메세지를 여러 블록으로 나누어 각각 암호화하는 방식이다.
       ECB는 단점때문에 많이 사용을 안하는데 그 단점은 "같은 암호화 키"를 사용하는 것이다. (확산의 부족, Lack of Diffusion)
       즉, 평문 메세지를 여러 블록을 나누어서 암호화 하기때문에 만약, 암호화 메세지를 여러 부분을 나누었을 때 두 블록이 같은 값을 가진다면, 암호화한 결과 역시 같다라는 특징이 있으므로 공격자가 비슷한 메세지를 반복적으로 암호화하는 반복공격에 취약한 성질은 가진다. (확산의 부족으로 설명했는데 동일한 암호 텍스트로 암호화를 하므로, 데이터 패턴이 잘 숨겨지지가 않는다는 뜻)
 
       그 예시로 다음 그림을 참고하자.
       
-      
+      ![ECB 알고리즘](https://dailyworker.github.io/assets/images/640px-ECB_encryption.svg.png "ECB_encryption")
+
       ECB모드가 비트맵 이미지를 암호화하는데 사용될 때를 보면, 각 개별 픽셀의 색상은 암호화되지만, 원본에서 동일한 색상의 픽셀 패턴이 암호화된 버전에 남아 있기 때문에 전체 이미지를 공격자가 인식할 수 있음을 보여준다.<br><br>
+
+      ![ECB 비트맵 적용](https://dailyworker.github.io/assets/images/Ecb_encryption2.png "ECB_encryption_apply_bitmap")
 
    + CBC(Cipher-Block Chaining)
       CBC는 간단하게 알고리즘만 보자면, 각 블록은 암호화되기 전에 이전 블록의 암호화 결과와 XOR되는데, 최초 시행 시에는 최초 평문 블럭과 IV를 XOR연산한다.
       이를 끝까지 반복하는데 평문의 마지막 블럭은 패딩된 블럭이다.
       **이 때, IV가 같은 경우 출력 결과가 항상 같기 때문에, 매 암호화마다 다른 IV를 사용하는 것이 매우 중요하다.**
+
+       ![ECB 알고리즘](https://dailyworker.github.io/assets/images/640px-CBC_encryption.svg.png "ECB_encryption")
 
 ## STEP 3. 구현
 
