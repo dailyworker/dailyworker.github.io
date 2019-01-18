@@ -2,11 +2,11 @@
 title: 안전한 암호화를 위한 AES 알고리즘에 대한 이해와 구현코드(Java, C#)
 date: 2019-01-16 16:00:00 +0900
 tags: 
-- Java
-- C#
-- Security
-- Chiphermode
-- Cryptography
+  - Java
+  - C#
+  - Security
+  - Chiphermode
+  - Cryptography
 ---
 
 # 개요 
@@ -323,8 +323,8 @@ AES는 블록 암호 작동 모드(block cipher mode of operation)와 결합이�
 
 + **IV(Initialization Vector)**<br>
    우리가 알아야 할 핵심 **동일한 키에서 초기화 벡터를 사용하지 말자!**이다.<br>
-   CBC의 경우, IV를 재사용하면 첫 번째 블록의 평문에 대한 정보와 두 메세지가 공유하는 공통 접두사가 누설될 수 있다.<br> OFB 혹은 CTR 모드의 경우 IV를 다시 사용하면 보안이 완전히 파괴된다.[^12]<br>
-   내가 코드로 구현한 모드는 CBC인데, CBC 모드에서는 IV는 암호화시 예측할 수 없어야 한다.<br> 메시지의 마지막 암호문 블록을 다음 메시지의 IV로 다시 사용하는 방법을 적용한다 하면 안전하지가 않다! <br>왜냐하면, 공격자가 다음 일반 텍스트를 지정하기 전에 IV를 알고 있으며 이전에 동일한 키로 암호화된 일부 블록의 일반 텍스트에 대한 추측할 수 있으며 공격으로 이어지기 때문이다.(TLS CBC IV Attack의 방식)[^13]  
+   CBC의 경우, IV를 재사용하면 첫 번째 블록의 평문에 대한 정보와 두 메세지가 공유하는 공통 접두사가 누설될 수 있다.<br> OFB 혹은 CTR 모드의 경우 IV를 다시 사용하면 보안이 완전히 파괴된다.[^11]<br>
+   내가 코드로 구현한 모드는 CBC인데, CBC 모드에서는 IV는 암호화시 예측할 수 없어야 한다.<br> 메시지의 마지막 암호문 블록을 다음 메시지의 IV로 다시 사용하는 방법을 적용한다 하면 안전하지가 않다! <br>왜냐하면, 공격자가 다음 일반 텍스트를 지정하기 전에 IV를 알고 있으며 이전에 동일한 키로 암호화된 일부 블록의 일반 텍스트에 대한 추측할 수 있으며 공격으로 이어지기 때문이다.(TLS CBC IV Attack의 방식)[^12]  
 
 + **Padding**<br>
    블록 암호는 고정된 블록 크기에서 작동하지만, 메세지는 다양한 길이로 나타난다.<br>
@@ -677,5 +677,4 @@ public class Decryption {
 [^9]:Cryptography Engineering: Design Principles and Practical Applications. Ferguson, N., Schneier, B. and Kohno, T. Indianapolis: Wiley Publishing, Inc. 2010. pp. 63, 64. ISBN 978-0-470-47424-2.
 [^10]:[초기화 벡터 - 위키백과](https://ko.wikipedia.org/wiki/%EC%B4%88%EA%B8%B0%ED%99%94_%EB%B2%A1%ED%84%B0)
 [^11]:Kuo-Tsang Huang, Jung-Hui Chiu, and Sung-Shiou Shen (January 2013). "A Novel Structure with Dynamic Operation Mode for Symmetric-Key Block Ciphers" (PDF). International Journal of Network Security & Its Applications (IJNSA). 5 (1): 19. Archived (PDF) from the original on 2015-11-22.
-[^12]:Kuo-Tsang Huang, Jung-Hui Chiu, and Sung-Shiou Shen (January 2013). "A Novel Structure with Dynamic Operation Mode for Symmetric-Key Block Ciphers" (PDF). International Journal of Network Security & Its Applications (IJNSA). 5 (1): 19. Archived (PDF) from the original on 2015-11-22.
-[^13]:B. Moeller (May 20, 2004), Security of CBC Ciphersuites in SSL/TLS: Problems and Countermeasures, archived from the original on June 30, 2012
+[^12]:B. Moeller (May 20, 2004), Security of CBC Ciphersuites in SSL/TLS: Problems and Countermeasures, archived from the original on June 30, 2012
