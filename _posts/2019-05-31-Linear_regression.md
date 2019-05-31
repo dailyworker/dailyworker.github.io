@@ -119,10 +119,10 @@ $$Distance(p,q)\quad =\quad \quad d(p,q)\quad =\quad \sqrt { ({ q }_{ 1 }-p_{ 1 
 다시 위의 그림의 왼쪽 초록색 직선을 보면 **에러가 전혀 없는 것** 을 확인할 수가 있다.그렇다면, 왼쪽 직선이 에러가 없으므로, **왼쪽 직선 모델이 더 낫다고 판단** 을 할 수가 있다.
 
 이제 좀 더 수학적으로 계속 파고들어가보자.
-error이외에 **squre error** 라는 것이 있다.
+error이외에 **Square error** 라는 것이 있다.
 
-1. Error : 실제 데이터의 y값과 예측 직선모델의 y값의 차이
-2. Squre Error : 실제 데이터의 y값과 예측 직선모델의 y값이 차이를 제곱해서 넓이로 보는 것.
+1. **Error** : 실제 데이터의 y값과 예측 직선모델의 y값의 차이
+2. **Square Error** : 실제 데이터의 y값과 예측 직선모델의 y값이 차이를 제곱해서 넓이로 보는 것.
 
 ![그림9](https://t1.daumcdn.net/cfile/tistory/99577C475B6BDA3A0C)
 
@@ -156,9 +156,9 @@ Square Error를 구하고, 그것을 평균을 낸 Mean Square Error를 보면 �
 위와 같은 경우 바로 **Linear Regression** 방식을 사용하는 것이다.
 여기서 사용될 개념이 **최소 평균 제곱근 오차(Minimum Mean Square Error(MMSE))** 이다.
 
-1. Error = H(x) - y : **예측값[H(X)](직선모델) - 실제값y(실제 데이터의 y값)**
-2. Square Error = Error를 제곱한 값 = **(H(x) - y)^2**
-3. Mean Square Error = Square Error를 다 더해서 n으로 나누어 평균낸 값 = **오차함수**
+1. **Error = H(x) - y** : **예측값H(X)(직선모델) - 실제값y(실제 데이터의 y값)**
+2. **Square Error** = Error를 제곱한 값 = **(H(x) - y)^2**
+3. **Mean Square Error** = Square Error를 다 더해서 n으로 나누어 평균낸 값 = **오차함수**
 
 $$Cost(W,\quad b)\quad =\quad \frac { 1 }{ m } \sum _{ i=1 }^{ m }{ (H({ x }^{ (i) })\quad -\quad { y }^{ (i) })^{ 2 } } $$
 
@@ -303,9 +303,9 @@ print("X: 2.5, Y:", sess.run(hypothesis, feed_dict={X: 2.5}))
 
 중요한 코드만 리뷰해보자!
 
-1. hypothesis = W * X + b (= $$H(x) = Wx + b)라는 것을 확인할 수 있을 것이다. 
+1. **hypothesis = W * X + b** :  (= $$H(x) = Wx + b)라는 것을 확인할 수 있을 것이다. 
 
-2. cost = tf.reduce_mean(tf.square(hypothesis - Y))
+2. **cost = tf.reduce_mean(tf.square(hypothesis - Y))**
  이 부분은 쪼개서 확인하자. 
   + 2.1 tf.square(hypothesis - Y)
         이 부분에서 hypothesis - Y = $$H(X) - Y$$ 임을 알 수가 있다. 
@@ -313,12 +313,12 @@ print("X: 2.5, Y:", sess.run(hypothesis, feed_dict={X: 2.5}))
         그 후 reduce_mean은 최소 평균을 구하는 함수이다. 
         즉, 이 소스코드는 **최소 제곱근 오차(MMSE)**를 구하는 부분이라고 볼 수 있다.
 
-3. optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
+3. **optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)**
   이 부분도 쪼개서 확인하자.
   + 3.1 learning_rate = 0.1 : 이 부분은 $$\alpha \frac { \partial  }{ \partial W } Cost(W)$$ 에서 알파 값을 0.1로 한다는 뜻이다. 
   + 3.2 tf.train.GradientDescentOptimizer : 이 부분은 위에서 배운 경사하강법을 적용하여 최적화를 시킨다는 내용이다. 
 
-4. train_op = optimizer.minimize(cost) : 이 부분은 최종적으로 경사하강법을 통해 Cost 값을 최소로 하게끔 학습하겠다는 내용이다.
+4. **train_op = optimizer.minimize(cost)** : 이 부분은 최종적으로 경사하강법을 통해 Cost 값을 최소로 하게끔 학습하겠다는 내용이다.
 
 나머지 부분은 주석을 참고하면 될 듯하다.
 
