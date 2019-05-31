@@ -1,3 +1,12 @@
+---
+title: 선형 회귀란 무엇인가?
+date: 2019-05-31 16:30:00 +0900
+tags: 
+  - AI(Artificial Intelligence)
+  - ML(Machine Learning)
+  - Linear Regression
+---
+
 # Dive into Linear Regression
 + STEP 1. 선형분석(Regression Analysis)
     + STEP 1.1 선형 모델
@@ -14,7 +23,7 @@
 
 오늘은 선형 회귀와 Tensorflow의 기본 변수형들을 집중적으로 파헤친 후에 선형회귀 코드를 리뷰하는 식으로 넘어가고자 한다. 
 
-## 회귀 분석(Regression Analysis)
+## STEP 1. 선형분석(Regression Analysis)
 
 먼저 2주차에 **선형 모델** 에 대해서 배웠던 것을 생각하자. 그리고 선형 분석을 알아보려고 한다.
 
@@ -34,7 +43,7 @@ Galton은 이를 **회귀 분석(Regression Analysis)** 라고 명칭하였다.
 
 이는 우리가 중고등학교때부터 배웠던 일차 함수의 그래프와 일치한다고 볼 수 있다.
 
-![수식1](https://latex.codecogs.com/gif.latex?f%5Cleft%28%20x%20%5Cright%29%20%5Cquad%20%3D%5Cquad%20Ax%5Cquad%20&plus;%5Cquad%20b)
+$$f(x)\quad =\quad Ax\quad +\quad b$$
 
 당연하게도 A는 선의 기울기를 나타내며, b는 선의 모양 축의 시작이라고 볼 수가 있다.
 
@@ -42,7 +51,7 @@ Galton은 이를 **회귀 분석(Regression Analysis)** 라고 명칭하였다.
 
 이를 머신러닝에서 적용하는 수식으로 살펴보면 아래와 같다.
 
-![수식2](https://latex.codecogs.com/gif.latex?H%5Cleft%28%20x%20%5Cright%29%20%5Cquad%20%3D%5Cquad%20Wx%5Cquad%20&plus;%5Cquad%20b)
+$$H(x)\quad =\quad Wx\quad +\quad b$$
 
 여기서 H를 우리는 앞으로 **가설(Hypothesis)** 을 의미한다 할 것이며, W는 **가중치(Weight)** 라고 부르며, b는 **편향(bias)** 라고 말할 것이다.
 
