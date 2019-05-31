@@ -188,7 +188,7 @@ $$W\quad :=\quad W\quad -\quad \alpha \frac { \partial  }{ \partial W } Cost(W)$
 W = W - ɑ* (비용함수를 W로 편미분한 것)인데, 여기서 W를 업데이트 하는 변화량 dw을 보면, ɑ와 비용의 편미분이 곱해진 것이 Gradient의 핵심이라고 할 수 있다.
 
 1. **W** : 첫번쨰 W로서, 우리가 맨처음 초기화한 상수이다. Gradient를 태워서 비용을 최소로 만드는 W로 점점 업데이트 될 것이다.
-2. **ɑ** : 학습계수(Learning Rate)로서, 학습속도를 조절하는 상수 (우리가 초기화)
+2. $$\alpha$$ : 학습계수(Learning Rate)로서, 학습속도를 조절하는 상수 (우리가 초기화)
 3. $$\alpha \frac { \partial  }{ \partial W } Cost(W)$$ : 비용 즉, MSE를 W로 편미분한 것.
 
 이것으로 미뤄봤을 때, 1,2 최초W와 a는 상수이므로 두고,
