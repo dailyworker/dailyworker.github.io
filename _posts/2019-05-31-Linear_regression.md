@@ -1,5 +1,5 @@
 ---
-title: 선형 회귀란 무엇인가?
+title: 선형 회귀(Linear Regression)란 무엇인가?
 date: 2019-05-31 16:30:00 +0900
 tags: 
   - AI(Artificial Intelligence)
@@ -251,7 +251,7 @@ W = W - ɑ* (비용함수를 W로 편미분한 것)인데, 여기서 W를 업데
 
 이를 이제 아래 파이썬 코드(Tensorflow)를 보면서 재분석해보자.
 
-```{.py}
+```python
 # X 와 Y 의 상관관계를 분석하는 기초적인 선형 회귀 모델을 만들고 실행해봅니다.
 import tensorflow as tf
 
@@ -297,6 +297,27 @@ with tf.Session() as sess:
     print("X: 5, Y:", sess.run(hypothesis, feed_dict={X: 5}))
 print("X: 2.5, Y:", sess.run(hypothesis, feed_dict={X: 2.5}))
 ```
+
+중요한 코드만 리뷰해보자!
+
+1. hypothesis = W * X + b (= $$H(x) = Wx + b)라는 것을 확인할 수 있을 것이다. 
+
+2. cost = tf.reduce_mean(tf.square(hypothesis - Y))
+ 이 부분은 쪼개서 확인하자. 
+  + 2.1 tf.square(hypothesis - Y)
+        이 부분에서 hypothesis - Y = $$H(X) - Y$$ 임을 알 수가 있다. 
+        여기서 tf.square는 제곱을 구하는 함수이다.
+        그 후 reduce_mean은 최소 평균을 구하는 함수이다. 
+        즉, 이 소스코드는 **최소 제곱근 오차(MMSE)**를 구하는 부분이라고 볼 수 있다.
+
+3. optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
+  이 부분도 쪼개서 확인하자.
+  + 3.1 learning_rate = 0.1 : 이 부분은 $$\alpha \frac { \partial  }{ \partial W } Cost(W)$$ 에서 알파 값을 0.1로 한다는 뜻이다. 
+  + 3.2 tf.train.GradientDescentOptimizer : 이 부분은 위에서 배운 경사하강법을 적용하여 최적화를 시킨다는 내용이다. 
+
+4. train_op = optimizer.minimize(cost) : 이 부분은 최종적으로 경사하강법을 통해 Cost 값을 최소로 하게끔 학습하겠다는 내용이다.
+
+나머지 부분은 주석을 참고하면 될 듯하다.
 
 
 
