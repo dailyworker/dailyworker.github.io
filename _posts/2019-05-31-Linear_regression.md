@@ -157,7 +157,7 @@ Square Error를 구하고, 그것을 평균을 낸 Mean Square Error를 보면 �
 2. Square Error = Error를 제곱한 값 = **(H(x) - y)^2**
 3. Mean Square Error = Square Error를 다 더해서 n으로 나누어 평균낸 값 = **오차함수**
 
-![수식3](https://latex.codecogs.com/gif.latex?Cost%28W%2Cb%29%5Cquad%20%3D%5Cquad%20%5Cfrac%20%7B%201%20%7D%7B%20m%20%7D%20%5Csum%20_%7B%20i%3D1%20%7D%5E%7B%20m%20%7D%7B%20%28H%28%7B%20x%20%7D%5E%7B%20%28i%29%20%7D%29-y%5E%7B%20%28i%29%20%7D%29%5E%7B%202%20%7D%20%7D)
+$$Cost(W,\quad b)\quad =\quad \frac { 1 }{ m } \sum _{ i=1 }^{ m }{ (H({ x }^{ (i) })\quad -\quad { y }^{ (i) })^{ 2 } } $$
 
 이 개념(Mean Square Error : MSE)를 이용하여, **Best한 선형 모델을 그을 것이다.**
 
