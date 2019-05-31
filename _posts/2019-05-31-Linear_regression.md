@@ -68,6 +68,9 @@ $$H(x)\quad =\quad Wx\quad +\quad b$$
 
 ![그림3](https://lh3.googleusercontent.com/rq_iMVSuIK1K4ykF9RQnF05hH6xxWm3lmNPWuQ3hfK9r4-3GBIuCxCW3L7QH53M3EIwbVWOcaRiRLDc0AIJ-0uq8-qzavpSWPceQ1lchq-ZPF16l3KLst24-x6MbGYFqQbEJmEI3gEc)
 
+---
+
+
 다시 돌아와, 그림1의 가설은 H(w) = 1*x + 0으로 나타낼 수가 있다.
 여기서 그려진 선이 **각 데이터의 분포와의 차이를 계산하여 가장 적은 것이 이 모델에 적합한 선** 이라는 것을 알 수가 있다. 그래서 이를 **비용함수(Cost Function)** 이라고 부른다.
 
@@ -87,14 +90,14 @@ $$Distance(p,q)\quad =\quad \quad d(p,q)\quad =\quad \sqrt { ({ q }_{ 1 }-p_{ 1 
 어디서 많이 보던 수식아닌가? 바로 두 점 사이의 최소 거리를 구하는 방식이다.
 여기서 루트만 벗기면 비용함수와 매우 흡사한 모습이란걸 알 수가 있다.
 
+## STEP 3. 비용함수(Cost Function)
+
 그렇다면 좀 더 깊게 들어가서 직관적으로 설명하기 위해 예시를 들어보겠다.
 
 아래의 초록색 직선과 빨간색 직선 중 어느 모델이 더 예측을 잘할까?
 
 ![그림6](https://t1.daumcdn.net/cfile/tistory/996DB14C5B6BDA382C)
 
-
-## STEP 3. 비용함수(Cost Function)
 
 잘 모르겠다면, 아래의 문제는 어떠한가?
  
