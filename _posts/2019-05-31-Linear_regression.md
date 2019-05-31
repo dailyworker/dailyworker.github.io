@@ -18,10 +18,11 @@ tags:
 + STEP 4. 경사하강법(Gradient Descent)
 + STEP 5. 학습계수(Learning Rate) ɑ는 어떻게 설정해야될까?
 
-우리는 이제 딥러닝과 머신러닝에 대한 개념이 간략하게라도 잡혀있는 상태이다.
-예전에 말했던 이야기 중에 **선형 회귀(Linear Regression)** 에 대해서 기억이 나는가?
+# 개요
 
-오늘은 선형 회귀와 Tensorflow의 기본 변수형들을 집중적으로 파헤친 후에 선형회귀 코드를 리뷰하는 식으로 넘어가고자 한다. 
+저희 [Nest.net](http://nnet.cbnu.ac.kr)에서는 지금 현재 인공지능 스터디를 진행하고 있습니다. 진행하면서, 인원들이 질문을 가장 많이했던 선형 회귀에 대해서 포스팅을 남기게 됐습니다. 다시 올려드리겠지만, 이 포스팅을 읽기 전에 선형 모델에 대한 내용을 구글링하시면 좀 더 이해가 빠르실 겁니다. 
+
+오늘은 선형 회귀와 Tensorflow의 기본 변수형들을 집중적으로 파헤친 후에 선형회귀 코드를 리뷰하는 식으로 넘어가고자 합니다.
 
 ## STEP 1. 선형분석(Regression Analysis)
 
@@ -74,15 +75,14 @@ $$H(x)\quad =\quad Wx\quad +\quad b$$
 
 비용함수는 아래와 같이 나타낸다.
 
-![수식3](https://latex.codecogs.com/gif.latex?Cost%28W%2Cb%29%5Cquad%20%3D%5Cquad%20%5Cfrac%20%7B%201%20%7D%7B%20m%20%7D%20%5Csum%20_%7B%20i%3D1%20%7D%5E%7B%20m%20%7D%7B%20%28H%28%7B%20x%20%7D%5E%7B%20%28i%29%20%7D%29-y%5E%7B%20%28i%29%20%7D%29%5E%7B%202%20%7D%20%7D)
-
+$$Cost(W,\quad b)\quad =\quad \frac { 1 }{ m } \sum _{ i=1 }^{ m }{ (H({ x }^{ (i) })\quad -\quad { y }^{ (i) })^{ 2 } } $$
 
 그렇다면? 이 비용함수의 식은 어떻게 도출됐을까??
 예전에 내가 아주 단순하게 설명했던 방식이 기억날 것이다.
 
 다 우리가 중고등학교때 했던 내용이다. L2 Distance(= 유클리드 Distnce)라고도 불리는 수식이 있다. 이 수식은 아래와 같다.
 
-![그림5](https://wikimedia.org/api/rest_v1/media/math/render/svg/dc0281a964ec758cca02ab9ef91a7f54ac00d4b7)
+$$Distance(p,q)\quad =\quad \quad d(p,q)\quad =\quad \sqrt { ({ q }_{ 1 }-p_{ 1 })^{ 2 }+({ q }_{ 2 }-p_{ 2 })^{ 2 }+\cdots +({ q }_{ n }-p_{ n })^{ 2 } } =\sqrt { \sum _{ i=1 }^{ n }{ ({ q }_{ i }-p_{ i })^{ 2 } }  }$$
 
 어디서 많이 보던 수식아닌가? 바로 두 점 사이의 최소 거리를 구하는 방식이다.
 여기서 루트만 벗기면 비용함수와 매우 흡사한 모습이란걸 알 수가 있다.
@@ -97,7 +97,7 @@ $$H(x)\quad =\quad Wx\quad +\quad b$$
 ## STEP 3. 비용함수(Cost Function)
 
 잘 모르겠다면, 아래의 문제는 어떠한가?
-
+ 
 ![그림7](https://t1.daumcdn.net/cfile/tistory/99379E395B6BDA3932)
 
 많은 사람들이 왼쪽이 더 예측하기 쉽다한다 왜냐? 모든 점들이 직선 상에 존재하기 때문이다.
@@ -173,20 +173,20 @@ Square Error를 구하고, 그것을 평균을 낸 Mean Square Error를 보면 �
 
 간단한 예제로, 최초의 직선을 H(x) = Wx라 두고, 이것의 비용함수
 
-![수식3](https://latex.codecogs.com/gif.latex?Cost%28W%2Cb%29%5Cquad%20%3D%5Cquad%20%5Cfrac%20%7B%201%20%7D%7B%20m%20%7D%20%5Csum%20_%7B%20i%3D1%20%7D%5E%7B%20m%20%7D%7B%20%28H%28%7B%20x%20%7D%5E%7B%20%28i%29%20%7D%29-y%5E%7B%20%28i%29%20%7D%29%5E%7B%202%20%7D%20%7D)
+$$Cost(W,\quad b)\quad =\quad \frac { 1 }{ m } \sum _{ i=1 }^{ m }{ (H({ x }^{ (i) })\quad -\quad { y }^{ (i) })^{ 2 } } $$
 
 을 최소로 하는 W를 찾는 것이 목적이다. 그 과정에서 경사하강법이 어떻게 적용되는지 보자.
 (머신러닝에서는 W를 θ(세타)라고 한다.)
 
 1. 경사하강법은 비용을 최소로 만드는 예측직선 H(x) = Wx에서 **최적의 W를 업데이트하면서 찾아내는 과정** 이다.  공식으로는 아래와 같다.
 
-![그림14](https://t1.daumcdn.net/cfile/tistory/99972C425B6BDA3F2E)
+$$W\quad :=\quad W\quad -\quad \alpha \frac { \partial  }{ \partial W } Cost(W)$$
 
 W = W - ɑ* (비용함수를 W로 편미분한 것)인데, 여기서 W를 업데이트 하는 변화량 dw을 보면, ɑ와 비용의 편미분이 곱해진 것이 Gradient의 핵심이라고 할 수 있다.
 
 1. **W** : 첫번쨰 W로서, 우리가 맨처음 초기화한 상수이다. Gradient를 태워서 비용을 최소로 만드는 W로 점점 업데이트 될 것이다.
 2. **ɑ** : 학습계수(Learning Rate)로서, 학습속도를 조절하는 상수 (우리가 초기화)
-3. ![그림15](https://t1.daumcdn.net/cfile/tistory/99BAD84A5B6BDA4007) : 비용 즉, MSE를 W로 편미분한 것.
+3. $$\alpha \frac { \partial  }{ \partial W } Cost(W)$$ : 비용 즉, MSE를 W로 편미분한 것.
 
 이것으로 미뤄봤을 때, 1,2 최초W와 a는 상수이므로 두고,
 **3.** 비용을 편미분한 것을 통해서 W를 변화시켜 최적(비용을 최소화하는)의 W로 업데이트 시키다는 것을 확인할 수 있다. 
