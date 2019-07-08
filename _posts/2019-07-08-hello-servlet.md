@@ -1,6 +1,6 @@
 ---
-title: '\['Java EE'\]' Servlet 입문
-date: 2019-07-08 18:00:00 +0900
+title: Java Servlet - 자바 서블릿이란?
+date: 2019-07-08 18:30:00 +0900
 tags: 
 - Java
 - Servlet
