@@ -1,5 +1,5 @@
 ---
-title: [Java EE] Servlet 입문
+title: '\['Java EE'\]' Servlet 입문
 date: 2019-07-08 18:00:00 +0900
 tags: 
 - Java
