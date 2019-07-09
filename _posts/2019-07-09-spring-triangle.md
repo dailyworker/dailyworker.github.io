@@ -7,7 +7,6 @@ tags:
   - Design_Pattern
 ---
 
-# Java Spring Triangle - 자바 스프링 핵심 3대 기술
 + STEP 1. 제어 역전(IoC, Inversion of Control)
 	+ STEP 1.1 제어 역전(IoC)이란?
     + STEP 1.2 Bean 등록 방법
