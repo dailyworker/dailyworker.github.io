@@ -472,7 +472,7 @@ public String processCreationForm(@Valid Owner owner, BindingResult result) {
 	
     기존의 코드를 고치지않고, 기존 객체를 다른 객체로 바꾸는 방법!
 
-## STEP 2.2 프록시 패턴이란? 
+### STEP 2.2 프록시 패턴이란? 
 ```java
 // Cash.java
 package org.springframework.samples.petclinic.proxy;
@@ -541,7 +541,7 @@ public class Store {
 }
 ```
 
-## STEP 2.3 AOP 적용 예제
+### STEP 2.3 AOP 적용 예제
 ```java
 /* LogExectionTime.java */
 package org.springframework.samples.petclinic.owner;
@@ -639,7 +639,7 @@ Service Abstraction
 
 따라서, 스프링 MVC가 PSA중에 하나이다. 
 
-## STEP 3.2 스프링 트랙잭션
+### STEP 3.2 스프링 트랙잭션
 
 `@Transactional`
 이 애노테이션이 붙은 메소드는 명시적으로 트랜잭션 처리를 해준다.
