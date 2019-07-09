@@ -1,5 +1,5 @@
 ---
-title: Java Spring Triangle - 자바 스프링 핵심 3대 기술
+title: Java Spring Triangle - 자바 스프링 핵심 3대 요소
 date: 2019-07-09 14:30:00 +0900
 tags: 
   - Java
@@ -64,7 +64,7 @@ class OwnerControllerTest {
 
 위 코드에 주석에도 설명되어 있듯이,  초기 코드에서는 OwnerController가 자신이 필요한 의존성인 OwnerRepository를 직접 생성 `new OwnerRepository();` 한 것을 볼 수 있는데 아래 코드를 보면, OwnerController가 직접 생성하는 것이 아닌 생성자의 인자로 OwnerRepository가 전달되며, **외부에서 주입**이 되는 것을 알 수가 있다.
 
-```
+c
 	public OwnerController(OwnerRepository repo){
 		this.repo = repo;
 	}
