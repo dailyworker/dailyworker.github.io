@@ -1,6 +1,6 @@
 ---
 title: Java Servlet Fowarding - 서블릿 포워딩을 어떻게 구현할까?
-date: 2019-07-09 17:00:00 +0900
+date: 2019-07-10 17:00:00 +0900
 tags: 
   - Java
   - Servlet
