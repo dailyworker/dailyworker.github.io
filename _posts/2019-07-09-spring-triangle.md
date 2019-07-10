@@ -4,7 +4,8 @@ date: 2019-07-09 14:30:00 +0900
 tags: 
   - Java
   - Spring
-  - Design_Pattern
+  - WebApplication
+  - DesignPatterns
 ---
 
 + STEP 1. 제어 역전(IoC, Inversion of Control)
@@ -63,7 +64,7 @@ class OwnerControllerTest {
 
 위 코드에 주석에도 설명되어 있듯이,  초기 코드에서는 OwnerController가 자신이 필요한 의존성인 OwnerRepository를 직접 생성 `new OwnerRepository();` 한 것을 볼 수 있는데 아래 코드를 보면, OwnerController가 직접 생성하는 것이 아닌 생성자의 인자로 OwnerRepository가 전달되며, **외부에서 주입**이 되는 것을 알 수가 있다.
 
-c
+```java
 	public OwnerController(OwnerRepository repo){
 		this.repo = repo;
 	}
@@ -255,7 +256,7 @@ public class sampleControllerTest {
 
 2. 직접등록
 
-XML 혹은 Java 설정파일을 만들어서 등록할 수가 있다.
+    XML 혹은 Java 설정파일을 만들어서 등록할 수가 있다.
 
 ```java
 /*SampleConfig.java 파일*/
@@ -666,4 +667,5 @@ try{
 ```
 
 이런식으로 아마 기본적인 트랜잭션 흐름이 동작할 것이다.
+
 하지만, 스프링에서 @Transactional 애노테이션을 사용하면, 위와 같이 setAutoCommit(false); 나 에러 캐치 후 rollback(); 하는 행위들을 모두 한번에 처리해준다.
