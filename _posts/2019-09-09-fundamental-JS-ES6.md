@@ -1,9 +1,7 @@
 ---
-
 title: 자바스크립트 동작원리와 ES6 - Fundamentals of JavaScript & ES6
 date: 2019-09-09 17:00:00 +0900
 tags: - JavaScript - ES6 - Fundamental
-
 ---
 
 - STEP 1. ES6 VS ES6 이전 자바스크립트
