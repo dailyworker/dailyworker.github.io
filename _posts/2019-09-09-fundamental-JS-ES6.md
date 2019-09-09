@@ -379,8 +379,6 @@ ES6 이후의 실행 컨텍스트(Execution Context; 이하, EC)가 가 생성�
 렉시컬 환경은 생성시점의 a()의 정보를 갖고 생성이 된다.
 위의 코드를 보면, 함수 생성시점에 평가된 EC a(), EC b()와 Global이 생성되면서, **outer Lexcial Environment**에 의해서 연결이 된다.
 
-![](2019-09-09/scopchain.png)
-
 정리를 해보자!
 **함수가 생성되면 실행 컨텍스트가 생성되고, 그리하여 렉시컬 환경의 내부 outer Lexical Environment가 상위 환경레코드와 연결이 됨으로써 내부 함수 정보 탐색이 가능하게 되는 것이다.**
 
