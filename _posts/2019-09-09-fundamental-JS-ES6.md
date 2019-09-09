@@ -304,7 +304,8 @@ VariableEnvironment = <ref . to VariableEnvironment in memory>,
 렉시컬 환경은 세가지 일을 한다. (VariableEnvironmnet도 동일)
 
 1. 환경 레코드(Environment Record)
-2. 외부 환경 참조(Reference to the outer environment) 3. this 바인딩(this binding)
+2. 외부 환경 참조(Reference to the outer environment)
+3. this 바인딩(this binding)
 
 렉시컬 환경은 식별자와 참조 혹은 값을 기록하는 `환경 레코드(Environment Record)`와 `outer`라는 또 다른 렉시컬 환경을 참조하는 포인터로 구성이 된다.
 `outer`는 외부 렉시컬 환경을 참조하는 포인터로, 중첩된 자바스크립트의 스코프 탐색을 위해 사용된다.
