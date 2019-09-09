@@ -432,11 +432,19 @@ function multiply(e, f) {
 c = multiply(20, 30);
 ```
 
+![execution-context](../assets/images/2019-09-09/execution-phase1.png)
+
 자바스크립트 엔진은 `script` 태그를 만났을 경우에 a, b, multiply()는 LexicalEnvironment에 등록을 하고, 변수 c는 variableEnvironment의 환경 레코드(이름:값)에 등록한다.
+
+![execution-context](../assets/images/2019-09-09/execution-phase2.png)
 
 전역 컨텍스트의 실행 단계에서 코드가 실행되고, 각각의 변수에 값이 할당된다.
 
+![execution-context](../assets/images/2019-09-09/execution-phase3.png)
+
 multiply 함수가 호출되는 순간 multiply() 함수의 실행 컨텍스트가 생성된다. 외부 환경으로는 전역 컨텍스트를 참조하고 있고, object reference로 호출되지 않았기 때문에 해당 생성시점의 this는 window와 같은 글로벌 오브젝트이다.
+
+![execution-context](../assets/images/2019-09-09/execution-phase4.png)
 
 multiply 함수가 값을 리턴하면서 호출 스택에서 pop된다.
 전역 컨텍스트에 있던 전역 변수 c에 결과 값이 업데이트가 되며, 그 후 글로벌 코드가 끝나면 프로그램도 종료된다.
