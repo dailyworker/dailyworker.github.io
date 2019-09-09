@@ -442,12 +442,12 @@ ES6와 ES5의 차이점을 이해하기 위해서 let이라는 키워드로 출�
 # Reference
 
 - [ECMAScript 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
-- [let, const | PoiemaWeb](https://poiemaweb.com/es6-block-scope)
+- [let, const - PoiemaWeb](https://poiemaweb.com/es6-block-scope)
 - [JS 자바스크립트의 The Execution Context (실행 컨텍스트) 와 Hoisting (호이스팅)](https://velog.io/@imacoolgirlyo/JS-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98-Hoisting-The-Execution-Context-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-6bjsmmlmgy)
 - [자바스크립트 함수(3) - Lexical Environment : TOAST Meetup](https://meetup.toast.com/posts/129)
 - [Understanding Scope and Scope Chain in JavaScript](https://blog.bitsrc.io/understanding-scope-and-scope-chain-in-javascript-f6637978cf53)
 - [ECMA-262-5 in detail. Chapter 3.2. Lexical environments](http://dmitrysoshnikov.com/ecmascript/es5-chapter-3-2-lexical-environments-ecmascript-implementation/#lexical-environment)
 - [JavaScript. The Core - Scope Chain](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#scope-chain)
-- [JS 스코프 체인 이란? | tyle.io](https://tyle.io/blog/54)
+- [JS 스코프 체인 이란? -tyle.io](https://tyle.io/blog/54)
 
-[^1] : [자바스크립트 언어 자료 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/%EC%96%B8%EC%96%B4_%EB%A6%AC%EC%86%8C%EC%8A%A4)
+[^1] : [자바스크립트 언어 자료 - JavaScript MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/%EC%96%B8%EC%96%B4_%EB%A6%AC%EC%86%8C%EC%8A%A4)
