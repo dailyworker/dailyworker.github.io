@@ -142,15 +142,14 @@ foo가 선언되기 이전 `console.log(foo);`을 보면 undefined라고 출력�
 
 1. 선언 단계(Declaration phase)
 
-- 변수 객체(Variable Object; VO)에 변수를 등록한다. (이 VO는 스코프가 참조하는 대상이 된다.)
+   > 변수 객체(Variable Object; VO)에 변수를 등록한다. (이 VO는 스코프가 참조하는 대상이 된다.)
 
 2. 초기화 단계(Initialization phase)
 
-- VO에 등로된 변수를 메모리에 할당한다. (이 단계에서 변수는 undefined로 초기화된다.)
+   > VO에 등로된 변수를 메모리에 할당한다. (이 단계에서 변수는 undefined로 초기화된다.)
 
 3. 할당 단계(Assignment phase)
-
-- undefined로 초기화된 변수에 실제 값을 할당한다.
+   > undefined로 초기화된 변수에 실제 값을 할당한다.
 
 **var 키워드로 선언된 변수는 선언 단계와 초기화 단계가 한번에 이루어진다.**
 즉, 스코프에 변수가 등록되고, 메모리 할당 후에 undefined로 초기화가 되는 것이다.
