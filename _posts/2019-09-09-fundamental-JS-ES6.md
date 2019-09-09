@@ -386,7 +386,7 @@ ES6 이후의 실행 컨텍스트(Execution Context; 이하, EC)가 가 생성�
 
 - [ECMA-262-5 in detail. Chapter 3.2. Lexical environments: ECMAScript implementation. – Dmitry Soshnikov(ES6 이후)](http://dmitrysoshnikov.com/ecmascript/es5-chapter-3-2-lexical-environments-ecmascript-implementation/#lexical-environment)
 - [JavaScript Core - Scope Chain(ES6 이전)](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#scope-chain)
-- [실행 컨텍스트와 자바스크립트의 동작원리 | PoiemaWeb](https://poiemaweb.com/js-execution-context)
+- [실행 컨텍스트와 자바스크립트의 동작원리 - PoiemaWeb](https://poiemaweb.com/js-execution-context)
 - [자바스크립트 함수(3) - Lexical Environment : TOAST Meetup](https://meetup.toast.com/posts/129)
 
 **3. This Binding(This 바인딩)**
