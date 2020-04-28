@@ -1,11 +1,12 @@
 ---
-title: Flutter - Widget, State, BuildContext 그리고 InheritedWidget Part. 1
+title: Flutter - Widget, State, BuildContext 그리고 InheritedWidget (Part 1)
 date: 2020-04-28 17:00:00 +0900
 tags:
   - Flutter
   - Dart
   - Fundamental
 ---
+
 - STEP 1. 서론
 - STEP 2. 본론
   - STEP 2. StatelessWidget vs StatefulWiget
@@ -154,11 +155,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
 대충 결과물에 대해서 그려보자면 이런식으로 그려진다고 볼 수 있다.
 
-[!Flutter-Start-Project](https://www.notion.so/sagomoongchi/b58548603f9844d19c847de3023f1cdf#28369080028b435fb5f1a856327d9181)
+![Flutter-Start-Project](../assets/images/flutter-widget-structure.png)
 
 이를 위젯 트리 형식으로 그려보자면
 
-[!Flutter-Start-Project WidgetTree](https://www.notion.so/sagomoongchi/b58548603f9844d19c847de3023f1cdf#22b72487aace47a8a17a38b6af938548)
+![Flutter-Start-Project WidgetTree](../assets/images/flutter-widget-tree-structure.png)
 
 이러한 형식으로 그려질 것이다. 
 
@@ -250,27 +251,27 @@ StatelessWidget과 조금 다른 점은, 클래스가 StatefulWidget과 State위
 
 [!StatefulWidget lifeCycle](https://lh6.googleusercontent.com/oork4t0zc8OH93oQptp-3w94YrmyOGo0Q9rXI6G5lBr7AWTSExbRK1gS0Hx3P0bqUmgRLDlPuioRMe_6CnKeB_8r-CxyUZNm8WBCg1Cv1qXW9Hx2E7FmFXka2mfYQN-EVPVz6fJU)
 
-	1. **createState()**  
-		+ Flutter가 StatefulWidget을 만들 경우 즉시 실행
-	2. **mounted is true**
-		+ `createState()`가 호출되면 `buildContext`가 state에 할당됌.
-			+ `this.mounted = true` : buildContext가 state에 할당완료
-			+ `this.mounted = false` : buildContext가 state에 할당실패
-			-> false일 경우 `setState()` 호출 시 에러 발생 가능성 존재
-	3. **initState()**
-		+ 위젯 인스턴스를 만들기 위해 **BuildContext**를 이용해 데이터 초기화
-	4. **didChangeDependencies()**
-		+ `initState()` 호출 이후 실행 의존하는 객체가 호출될 때마다 호출 
-	5. **build()**
-		+ 위젯을 리턴
-		+ `setState()` 호출될 때마다 호출된다.
-	6. **didUpdateWidget(Widget oldWidget)**
-		+ 부모 위젯이 업데이트 되거나 이 위젯을 다시 만들 경우 호출 
-	7. **deactivate()**
-		+ 해당 widget이 트리에서 제거되는 순간 호출
-	8. **dispose()**
-		+ 모든 렌더링이 완전히 끝난 후, 자원 해제를 위해 호출 
-	9. **mounted is false**
+1. **createState()**  
+  + Flutter가 StatefulWidget을 만들 경우 즉시 실행
+2. **mounted is true**
+  + `createState()`가 호출되면 `buildContext`가 state에 할당됌.
+    + `this.mounted = true` : buildContext가 state에 할당완료
+    + `this.mounted = false` : buildContext가 state에 할당실패
+    -> false일 경우 `setState()` 호출 시 에러 발생 가능성 존재
+3. **initState()**
+  + 위젯 인스턴스를 만들기 위해 **BuildContext**를 이용해 데이터 초기화
+4. **didChangeDependencies()**
+  + `initState()` 호출 이후 실행 의존하는 객체가 호출될 때마다 호출 
+5. **build()**
+  + 위젯을 리턴
+  + `setState()` 호출될 때마다 호출된다.
+6. **didUpdateWidget(Widget oldWidget)**
+  + 부모 위젯이 업데이트 되거나 이 위젯을 다시 만들 경우 호출 
+7. **deactivate()**
+  + 해당 widget이 트리에서 제거되는 순간 호출
+8. **dispose()**
+  + 모든 렌더링이 완전히 끝난 후, 자원 해제를 위해 호출 
+9. **mounted is false**
 
 자세한 내용은 [Newbie Chapter 4. Widget’s state - nhancv's blog](https://nhancv.com/newbie-chapter-4-widgets-state/)을 참고해보도록 하자.
 라이플 사이클만 봐도 Stateful Widget은 State가 관리되는 것이 핵심이라고도 볼 수 있어보인다. 그렇다면? State는 정확히 무슨 일을 할까?
@@ -307,11 +308,17 @@ StatelessWidget과 조금 다른 점은, 클래스가 StatefulWidget과 State위
 
 
 # STEP 3. 결론
-지금까지 우리는 StatefulWidget과 StatelessWidget에 관해서 심층적으로 분석을 해봤다. 다음에는 좀 더 깊이 들어가서 InheritedWidget에 대한 개념을 다뤄보도록 하겠다.
+지금까지 우리는 StatefulWidget과 StatelessWidget에 관해서 심층적으로 분석을 해봤다. 
+
+다음에는 좀 더 깊이 들어가서 InheritedWidget에 대한 개념을 다뤄보도록 하겠다.
 
 # STEP 3. REFERENCE
-[Widget — State — BuildContext — InheritedWidget - Flutter Community - Medium](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
-[paulaner80 :: Widget, State, BuildContext 그리고 InheritedWidget](https://paulaner80.tistory.com/entry/Widget-State-BuildContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-InheritedWidget)
-[Flutter Buildcontext Class - JACE SHIM](https://jaceshim.github.io/2019/01/25/flutter-study-buildcontext-class/)
-[Flutter Stateful Widget Lifecycle](https://javaexpert.tistory.com/974)
-[Flutter 간단 정리하기 - 박성룡 ( Andrew park ) - Medium](https://medium.com/@pks2974/flutter-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-9532e16aff57)
+1. [Widget — State — BuildContext — InheritedWidget - Flutter Community - Medium](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+
+2. [paulaner80 :: Widget, State, BuildContext 그리고 InheritedWidget](https://paulaner80.tistory.com/entry/Widget-State-BuildContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-InheritedWidget)
+
+3. [Flutter Buildcontext Class - JACE SHIM](https://jaceshim.github.io/2019/01/25/flutter-study-buildcontext-class/)
+
+4. [Flutter Stateful Widget Lifecycle](https://javaexpert.tistory.com/974)
+
+5. [Flutter 간단 정리하기 - 박성룡 ( Andrew park ) - Medium](https://medium.com/@pks2974/flutter-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-9532e16aff57)
