@@ -1,3 +1,12 @@
+---
+title: Flutter - Widget, State, BuildContext 그리고 InheritedWidget Part. 1
+date: 2020-04-28 17:00:00 +0900
+tags:
+  - Flutter
+  - Dart
+  - Fundamental
+---
+
 # Flutter - Widget, State, BuildContext 그리고 InheritedWidget Part 1
 # 서론
 Flutter 공식팀에서 Flutter에 대해서 소개하는 한 줄 코멘트가 있다.
