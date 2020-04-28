@@ -249,7 +249,7 @@ StatelessWidget과 조금 다른 점은, 클래스가 StatefulWidget과 State위
 
 그렇다면 StatefulWidget의 라이프사이클은 어떻게 될까?
 
-[!StatefulWidget lifeCycle](https://lh6.googleusercontent.com/oork4t0zc8OH93oQptp-3w94YrmyOGo0Q9rXI6G5lBr7AWTSExbRK1gS0Hx3P0bqUmgRLDlPuioRMe_6CnKeB_8r-CxyUZNm8WBCg1Cv1qXW9Hx2E7FmFXka2mfYQN-EVPVz6fJU)
+![StatefulWidget lifeCycle](https://lh6.googleusercontent.com/oork4t0zc8OH93oQptp-3w94YrmyOGo0Q9rXI6G5lBr7AWTSExbRK1gS0Hx3P0bqUmgRLDlPuioRMe_6CnKeB_8r-CxyUZNm8WBCg1Cv1qXW9Hx2E7FmFXka2mfYQN-EVPVz6fJU)
 
 1. **createState()**  
   + Flutter가 StatefulWidget을 만들 경우 즉시 실행
