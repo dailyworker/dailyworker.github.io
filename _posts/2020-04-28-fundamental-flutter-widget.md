@@ -163,7 +163,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 이러한 형식으로 그려질 것이다. 
 
-자 이제 좀 더 깊게 들어가보자, 그렇다면 우리가 위젯을 렌더링할 때 사용하는 ` Widget build(BuildContext context)`의 **빌드컨텍스트**는 무엇일까? 
+자 이제 좀 더 깊게 들어가보자, 그렇다면 우리가 위젯을 렌더링할 때 사용하는 
+`Widget build(BuildContext context)`의 **빌드컨텍스트**는 무엇일까? 
 
 빌드컨텍스트(BuildContext)는 **빌드 된 모든 위젯 트릭 구조 내의 위젯 위치에 대한 참조**이다. 즉, **트리의 부모자식 관계를 구성하기 위한 변수**라고 볼 수 있다. 
 
