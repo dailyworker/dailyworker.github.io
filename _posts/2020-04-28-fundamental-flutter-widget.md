@@ -6,9 +6,19 @@ tags:
   - Dart
   - Fundamental
 ---
+- STEP 1. 서론
+- STEP 2. 본론
+  - STEP 2. StatelessWidget vs StatefulWiget
+    - STEP 2.1 StatelessWidget vs StatefulWiget
+    - STEP 2.2 Stateless Widget
+    - STEP 2.3 Stateful Widget
+      - STEP 2.3.1 State란? 
+    - STEP 2.3 StatelessWidget과 StatefulWidget 선택 방법
+- STEP 3. 결론
+- STEP 4. Reference
 
 # Flutter - Widget, State, BuildContext 그리고 InheritedWidget Part 1
-# 서론
+# STEP 1. 서론
 Flutter 공식팀에서 Flutter에 대해서 소개하는 한 줄 코멘트가 있다.
 > In Flutter, almost everything is a Widget.  
 
@@ -19,7 +29,7 @@ Flutter 공식팀에서 Flutter에 대해서 소개하는 한 줄 코멘트가 �
 하지만 계속해서 강의를 들으면서 쓸데없는 시간 낭비라고 혹자는 말할지는 모르겠지만, 궁금한 부분이 생겨났었고 오늘은 그 부분에 대해서 정리를 하고자 한다. 
 
 
-# 본론
+# STEP 2. 본론
 > 플러터에서는 거의 모든 것이 위젯이다.  
 
 그렇다면, 우리가 만든 위젯은 어떠한 방식으로 렌더링이 되는 것일까?
@@ -164,14 +174,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
 그렇다면 위의 예제코드에서 `class MyApp extends StatelessWidget` 와 `class MyHomePage extends StatefulWidget` 에서의 `StatelessWidget` 와 `StatefulWidget` 는 무엇을 나타내는 것일까? 
 
-## STEP 1. StatelessWidget vs StatefulWiget
+## STEP 2.1 StatelessWidget vs StatefulWiget
 Flutter에서 제공하는 위젯들은 크게 타입이 2가지로 나뉘어지게 된다.
 	1. **StatefulWidget** 
 	2. **StatelessWidget** 
 
 이름에서도 뭔가 느낌이 오지않는가? Stateful Wiget은 상태 값(state)이 변화하는 위젯이라고 볼 수 있으며, Stateless Widget은 상태 값이 변화하지 않는 위젯이라고 볼 수 있다.
 
-### STEP 1.1 Stateless Widget
+### STEP 2.2 Stateless Widget
 이 위젯은 빌드 타이밍에 부모로 부터 받은 정보에 의존하는 컴포넌트이다.
 **즉, 한 번 빌드되면 신경쓰지 않아도 된다는 말입니다.**
 예시로는 Text(), Container(), Column() 등이 있다. 이러한 위젯들은 빌드할 때 파라미터를 단순히 전달한다. 이러한 파라미터를 전달해 한번 적용되면 **다시 빌드를 하기 전까지는 변하지가 않는 위젯**이다.
@@ -197,7 +207,7 @@ class MyApp extends StatelessWidget {
 
 우리가 실행시킬 **Main UI**가 담긴 `MyApp` 클래스가 **StatelessWidget**이라고 볼 수 있다. 이 StatelessWidget의 라이플 사이클은 매우 단순하다.  `build()` 메소드를 오버라이딩하여, 초기화를 수행한다. 	
 
-### STEP 1.2 StatefulWidget
+### STEP 2.2 StatefulWidget
 StatefulWidget과 같은 경우에는 위젯이 살아있는 경우, 내부 데이터를 다루는 위젯이다. 따라서 **데이터는 위젯이 살아 있는 동안 동적으로 변한다.**
 이게 바로 StatelessWidget과 StatefulWidget의 가장 큰 차이점이라고 볼 수 있다.
 이러한 **동적으로 변화하는 데이터의 집합**을 **State**라 부른다.
@@ -265,7 +275,7 @@ StatelessWidget과 조금 다른 점은, 클래스가 StatefulWidget과 State위
 자세한 내용은 [Newbie Chapter 4. Widget’s state - nhancv's blog](https://nhancv.com/newbie-chapter-4-widgets-state/)을 참고해보도록 하자.
 라이플 사이클만 봐도 Stateful Widget은 State가 관리되는 것이 핵심이라고도 볼 수 있어보인다. 그렇다면? State는 정확히 무슨 일을 할까?
 
-### STEP 1.2.1 State란? 
+### STEP 2.2.1 State란? 
 위에서 설명한 대로 State의 정의는 **동적으로 변화하는 데이터의 집합**이고, 이걸 프로그래밍적으로 보자면 , **StatefulWidget 인스턴스의 "행동"을 정의하는 부분**이라고 볼 수 있다.
 
  그렇기에, **State는 위젯의 동작과 레이아웃을 위한 정보**를 가지고 있으며, **State가 변경되면 위젯은 리빌드**가 된다.
@@ -276,7 +286,7 @@ StatelessWidget과 조금 다른 점은, 클래스가 StatefulWidget과 State위
 
 이는 즉, **State가 mount된 BuildContext가 아닌 다른 BuildContext에 접근가능하지 않게끔 하려는 의도**로 보인다. 
 
-### STEP 1.3 StatelessWidget과 StatefulWidget 선택 방법
+### STEP 2.3 StatelessWidget과 StatefulWidget 선택 방법
 위에서 좀 깊게 StatelessWidget과 StatefulWidget을 다뤄봤다. 따라서 이 글을 보신 분들이라면 스스로 아래의 질문을 할 수가 있을 것이다.
 
 > 내 위젯이 라이플사이클 동안 변경될 변수를 고려해야 하며, 변경 시 위젯이 강제로 재구성이 될 수 있는가?   
@@ -296,10 +306,10 @@ StatelessWidget과 조금 다른 점은, 클래스가 StatefulWidget과 State위
 바로, 폼을 검증하거나 제출하기 전에 어떠한 행동을 위젯에서 처리할 것이 없기 떄문이다.
 
 
-# 결론
+# STEP 3. 결론
 지금까지 우리는 StatefulWidget과 StatelessWidget에 관해서 심층적으로 분석을 해봤다. 다음에는 좀 더 깊이 들어가서 InheritedWidget에 대한 개념을 다뤄보도록 하겠다.
 
-# REFERENCE
+# STEP 3. REFERENCE
 [Widget — State — BuildContext — InheritedWidget - Flutter Community - Medium](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 [paulaner80 :: Widget, State, BuildContext 그리고 InheritedWidget](https://paulaner80.tistory.com/entry/Widget-State-BuildContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-InheritedWidget)
 [Flutter Buildcontext Class - JACE SHIM](https://jaceshim.github.io/2019/01/25/flutter-study-buildcontext-class/)
