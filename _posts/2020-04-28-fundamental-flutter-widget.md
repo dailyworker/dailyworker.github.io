@@ -322,7 +322,7 @@ StatelessWidget과 조금 다른 점은, 클래스가 StatefulWidget과 State위
 
 다음에는 좀 더 깊이 들어가서 InheritedWidget에 대한 개념을 다뤄보도록 하겠다.
 
-# STEP 3. REFERENCE
+# STEP 4. REFERENCE
 1. [Widget — State — BuildContext — InheritedWidget - Flutter Community - Medium](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
 2. [paulaner80 :: Widget, State, BuildContext 그리고 InheritedWidget](https://paulaner80.tistory.com/entry/Widget-State-BuildContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-InheritedWidget)
