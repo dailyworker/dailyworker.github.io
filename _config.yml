@@ -22,14 +22,14 @@ name: "Seansin"
 description: "계속해서 배우는 온새미로의 자세를 유지하자!"
 url: "https://dailyworker.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
-repository: "dailyworker/dailyworker.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository: "dailyworker/dailyworker-comments" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute: 200
 comments:
-  provider: "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
+  provider: "utterances" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
   disqus:
-    shortname: dailyworker # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname: #dailyworker # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server: # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -38,8 +38,8 @@ comments:
     num_posts: # 5 (default)
     colorscheme: # "light" (default), "dark"
   utterances:
-    theme: #"github-light"
-    issue_term: #"pathname"
+    theme: "github-light"
+    issue_term: "pathname"
 staticman:
   allowedFields: # ['name', 'email', 'url', 'message']
   branch: # "master"
