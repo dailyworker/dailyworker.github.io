@@ -31,7 +31,7 @@ tags:
     - 차집합이 존재한다면 → 동명이인 존재 X
     - 차집합이 존재하지 않는다면 → 동명이인 존재 O
 3. 차집합이 존재하면 해당 Set을 `String.join(",")`하여 리턴하면 된다.
-4. 차집합이 존재하지 않는다면, Paritipant, Completion 오름차순 정렬 후 원소를 비교하여 다른 값이 존재하는 부분에 리턴 
+4. 차집합이 존재하지 않는다면, `Paritipant, Completion` 오름차순 정렬 후 원소를 비교하여 다른 값이 존재하는 부분에 리턴 
     - 다른 값이 존재하지 않으면 맨 마지막 값 동명이인이라는 뜻
 
 ```java
@@ -51,27 +51,27 @@ class Solution {
         return String.join(",", answer);
     }
 		
-		public Set<String> getDifference(Set<String> partSet, Set<String> compSet){
-			Set<String> copySet = new HashSet<String>();
-			copySet.addAll(partSet);	
-			copySet.removeAll(compSet);
-			return copySet;
-		}
+    public Set<String> getDifference(Set<String> partSet, Set<String> compSet){
+        Set<String> copySet = new HashSet<String>();
+        copySet.addAll(partSet);	
+        copySet.removeAll(compSet);
+        return copySet;
+    }
 
-		public String getDuplicated(String[] participant, String[] completion){
-           Arrays.sort(participant);
-           Arrays.sort(completion);
-           String answer = "";
-          
-           for(int i = 0; i < participant.length - 1; i++){
-               if(Arrays.asList(participant[i]).contains(completion[i])){
-                   continue;
-               } else {
-                   return answer = participant[i];
-               } 
-           }     
-           return answer = participant[participant.length - 1];
-		}
+    public String getDuplicated(String[] participant, String[] completion){
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+        String answer = "";
+        
+        for(int i = 0; i < participant.length - 1; i++){
+            if(Arrays.asList(participant[i]).contains(completion[i])){
+                continue;
+            } else {
+                return answer = participant[i];
+            } 
+        }     
+        return answer = participant[participant.length - 1];
+    }
 }
 ```
 
@@ -86,9 +86,9 @@ class Solution {
 1. **완주하지 못한 선수는 단 1명**이다.
 2. 또한, **Participant와 Completion의 원소 개수의 차이는 단 1개**이다.
 3. 따라서 오름차순으로 두 개의 배열을 정렬한 뒤에 모든 인덱스를 비교하면서 다른 값을 리턴하면 그 인원이 완주하지 못한 선수이다. 
-    - 배열의 차가 1이므로 length - 1만큼 돌면된다.
-    - !participant.equals(completion) 라면 완주못한 사람이다.
-        - 만일 length - 1만큼 인덱스를 순회했는데 없다면 마지막 인덱스가 완주 못한 사람이다.
+    - 배열의 차가 1이므로 `length - 1`만큼 돌면된다.
+    - `!participant.equals(completion)` 라면 완주못한 사람이다.
+        - 만일 `length - 1`만큼 인덱스를 순회했는데 없다면 마지막 인덱스가 완주 못한 사람이다.
 
 따라서, 아래와 같이 차집합을 구하는 부분을 없애도 결과는 맞다고 나온다.
 
