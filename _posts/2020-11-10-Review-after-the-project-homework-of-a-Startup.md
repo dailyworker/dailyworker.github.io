@@ -303,7 +303,7 @@ private static boolean isDuplicatedMovie(OrderProductGroups orderProductGroups){
 
 인조키는 예시로 들 수 있는 것이 UUID나 DB 자체에서 생성된 시퀀스로 볼 수 있을 것이다.
 
-나는 자연키는 따로 필드를 빼두고 인조키를 PK로 활용하는 방안으로 설계를 진행하였다. 이 말은 그냥 JPA에서 알아서 PK를 처리하도록 하게끔 @GeneratedValue(strategy = GenerationType.IDENTITY) 전략을 활용하였다는 말이다.
+나는 자연키는 따로 필드를 빼두고 인조키를 PK로 활용하는 방안으로 설계를 진행하였다. 이 말은 그냥 JPA에서 알아서 PK를 처리하도록 하게끔 `@GeneratedValue(strategy = GenerationType.IDENTITY)` 전략을 활용하였다는 말이다.
 
 이 부분에 대해서 좀 더 알고 싶으면 해당 포스팅을 추천한다.
 
@@ -362,7 +362,7 @@ public abstract class Product {
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Book extends Product {
     // 상태 존재 X
-		// 추상클래스 상태의 접근제어자들이 protected로 선언 되어있음
+    // 추상클래스 상태의 접근제어자들이 protected로 선언 되어있음
     // 자식 클래스에서 concrete object로 생성하게끔 함.
     @Builder
     public Book(Long id, Long naturalKey, String productType, ... ) {
