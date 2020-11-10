@@ -245,7 +245,7 @@ public class OrderProductGroups {
 ```java
 private static void checkDuplicatedMovie(List<OrderProduct> orderProducts) {
     if (isDuplicatedMovie(orderProducts)) {
-        throw new DuplicatedKlassOrderException("같은 Movie를 여러 개 주문이 불가합니다.");
+        throw new DuplicatedMovieOrderException("같은 Movie를 여러 개 주문이 불가합니다.");
     }
 }
 
@@ -807,7 +807,7 @@ public static Movie createMovie(Long naturalKey, ...) {
 public class ProductFactory {
     public static Product createProduct(ProductRequestInfo dto){
         if("Movie".equalsIgnoreCase(dto.getProductType())){
-            return Kit.createKit(dto.getNaturalKey(), ... );
+            return Movie.createMovie(dto.getNaturalKey(), ... );
         } 
 				...
         throw new IllegalArgumentException("Product 객체를 생성할 수 없습니다.");
@@ -815,7 +815,7 @@ public class ProductFactory {
 
     public static Product getProduct(ProductResponseInfo dto){
         if("Movie".equalsIgnoreCase(dto.getProductType())){
-            return Kit.getKit(dto.getId(), ... );
+            return Movie.getMovie(dto.getId(), ... );
         } 
 				...
         throw new IllegalArgumentException("Product 객체를 생성할 수 없습니다.");
@@ -848,7 +848,7 @@ public static Product createProduct(ProductRequestInfo dto){
     Product product = null;
     try {
         if(isMovie("Movie", dto.getProductType())){
-            product = Kit.from(dto);
+            product = Movie.from(dto);
         } 
         ...
     } catch (IllegalArgumentException e){
