@@ -829,7 +829,7 @@ public class ProductFactory {
 
 또한 하위 클래스 내부에 validation 메소드를 집어 넣었는데 try를 통하여 exception을 캐치하는 것이 아니라 IllegalArgumentException을 따로 던져주는 것을 확인 할 수 있었다.
 
-이 부분은 try-catch-resource로 처리해야된다고 생각한다.
+이 부분은 try-catch로 처리해야된다고 생각한다.
 
 이 부분을 다시 리팩토링해보면 이렇게 될 것같다.
 
@@ -848,9 +848,9 @@ public static Product createProduct(ProductRequestInfo dto){
     Product product = null;
     try {
         if(isMovie("Movie", dto.getProductType())){
-					product = Kit.from(dto);
+            product = Kit.from(dto);
         } 
-				...
+        ...
     } catch (IllegalArgumentException e){
         System.out.println(e.getMessage());
     }
