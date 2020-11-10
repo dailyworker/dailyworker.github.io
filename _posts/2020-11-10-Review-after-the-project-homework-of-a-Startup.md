@@ -1,5 +1,5 @@
 ---
-title: "Review after the project homework of a Startup - 어떤 스타트업의 과제 전형 참여 후기"
+title: "Review after the homework of a Startup - 어떤 스타트업의 과제 전형 참여 후기"
 date: 2020-11-10 10:54:00 +0900
 tags:
   - Spring Boot 
@@ -858,7 +858,7 @@ public static Product createProduct(ProductRequestInfo dto){
 }
 ```
 
-다른 방법은 아예 Factory를 없애고, 추상 클래스에 isKit()과 같은 메소드를 추가하여 서브클래스에서 구현한 뒤에 처리하는 방법도 있을 것 같다.
+다른 방법은 아예 Factory를 없애고, 추상 클래스에 `isMovie()`과 같은 메소드를 추가하여 서브클래스에서 구현한 뒤에 처리하는 방법도 있을 것 같다.
 
 추상 클래스에 빌더 패턴을 적용하는 등 아쉬운 부분이 있지만, 이것은 지금 구현된 아키텍처에는 굳이 적용하지 않아도 될 부분이라고 생각하여 생략한다.
 
@@ -885,3 +885,5 @@ public static Product createProduct(ProductRequestInfo dto){
 [JPA N+1 쿼리 문제와 해결](https://meetup.toast.com/posts/87)
 
 [@ManyToOne의-N+1-문제-원인-및-해결](https://kapentaz.github.io/jpa/hibernate/@ManyToOne%EC%9D%98-N+1-%EB%AC%B8%EC%A0%9C-%EC%9B%90%EC%9D%B8-%EB%B0%8F-%ED%95%B4%EA%B2%B0/#)
+
+[Hibernate LazyInitializationException 해결](https://uncle-bae.blogspot.com/2015/12/hibernate-lazyinitializationexception.html)
