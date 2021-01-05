@@ -1,5 +1,5 @@
 ---
-title: "Fundamental of JVM and how to implement class hot swap in java"
+title: "Fundamental of JVM and how to implement class hot swap in java - Java JVM과 클래스 로더 동작원리"
 date: 2020-12-29 19:30:00 +0900
 tags:
   - Java
