@@ -207,7 +207,7 @@ HGETALL Records:blue
 
 즉 추천되기도했고 사용자가 읽기도했던 아이템은 아래와 같은 교집합일 것이다.
 
-![intersection](https://user-images.githubusercontent.com/22961251/111896167-6e9f2c80-8a0f-11eb-97f1-f3e9d191bff5.png)
+![intersection](https://user-images.githubusercontent.com/22961251/111896367-f33e7a80-8a10-11eb-8e65-700716f0cb6c.png)
 
 하지만 이 부분을 직접 꺼내와서 **서비스 레이어에서 비교를 하자니 속도가 처참**했다. 
 
