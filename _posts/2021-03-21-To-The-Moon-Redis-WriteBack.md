@@ -7,16 +7,7 @@ tags:
   - Lettuce
 ---
 
-# To the Moon - 더 나은 로깅시스템을 위한 여정 Redis WriteBack
-
-Created: 2021년 3월 20일 오후 11:12
-Created By: Sean Sin
-Last Edited By: Sean Sin
-Last Edited Time: 2021년 3월 21일 오후 3:09
-Type: Architecture Overview
-
 # 목차
-
 - 개요
 - STEP 1. Redis Write Back을 도입하는 여정기
 - STEP 2. Redis Collection 설계 및 구현
