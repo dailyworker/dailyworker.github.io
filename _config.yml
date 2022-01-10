@@ -16,10 +16,10 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale: "ko"
-title: "개발못하는 개발자"
+title: "개발 한입"
 title_separator: "-"
 name: "Seansin"
-description: "초심을 온새미로 지키는 개발자"
+description: "초심을 잃지 않는 개발자"
 url: "https://dailyworker.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: "dailyworker/dailyworker-comments" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
