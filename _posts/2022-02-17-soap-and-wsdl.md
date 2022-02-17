@@ -57,7 +57,7 @@ REST의 예로 들면 `api/v1/github/docs` 라는 api가 해당 api에 대한 �
 
 예시로 현재 만들고 있는 토이 프로젝트에서 제공하는 WSDL을 샘플로 확인해보자.
 
-```.xml
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions
 	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
@@ -213,7 +213,7 @@ RESTful과 SOAP 비교 관련해서는  [Roots of the REST/SOAP Debate](http://w
 ### XML 스키마 파일 작성
 예시 프로젝트에서 사용할 XML 스키마 파일은 `countries.xsd` 이다.
 
-```.xml
+```xml
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
            targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
 
@@ -266,7 +266,7 @@ RESTful과 SOAP 비교 관련해서는  [Roots of the REST/SOAP Debate](http://w
 
 + build.gradle 
 
-```.groovy
+```groovy
 ...
 configurations {
     jaxb
@@ -337,7 +337,7 @@ dependencies {
 
 + WebServiceConfig
 
-```.java
+```java
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
@@ -377,7 +377,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 다음은 SOAP의 컨트롤러의 역할을 한다고 볼 수 있는 Endpoint 이다.
 
 + CountryEndpoint
-```.java
+```java
 @Endpoint
 public class CountryEndpoint {
     private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
@@ -419,11 +419,12 @@ public class CountryEndpoint {
 
 ### 실제 테스트
 E2E 테스트를 위해서 build.gradle에 다음 의존성을 추가한다.
+
 `testImplementation 'org.springframework.ws:spring-ws-test'`
 
 전체 코드는 [CountryEndpointTest.java](https://github.com/dailyworker/blog-example/blob/study/ws/spring-producing-ws-example/src/test/java/io/github/dailyworker/springproducingwsexample/CountryEndpointTest.java)을 참고하자.
 
-```.java
+```java
 ...
 @Test
 public void getCountry() throws IOException {
@@ -467,7 +468,7 @@ public void getCountry() throws IOException {
 잠깐 토이 프로젝트의 샘플 코드를 보자.
 
 + SchemaConversionUtils
-```.java
+```java
 public static FlightSchedule toSchemaType(io.dailyworker.flight.domain.FlightSchedule domainFlightSchedule)
         throws DatatypeConfigurationException {
 
@@ -493,7 +494,7 @@ public static FlightSchedule toSchemaType(io.dailyworker.flight.domain.FlightSch
 
 # 레퍼런스 
 1. [GDS 3파전 본격화...새로운 전쟁의 시작](http://www.gtn.co.kr/mobile/news_view.asp?news_seq=62639)
-2. [GDS Integration. FlightsLogic is a GDS Integration… | by Stevenson | Medium](https://medium.com/@stevenson14789632/gds-integration-f8717f1e3f65)
+2. [GDS Integration](https://medium.com/@stevenson14789632/gds-integration-f8717f1e3f65)
 3. [SOAP Simple Object Access Protocol이란?](https://narup.tistory.com/80)
 4. [Representational state transfer (REST) and Simple Object Access Protocol (SOAP)](https://stackoverflow.com/questions/209905/representational-state-transfer-rest-and-simple-object-access-protocol-soap) 
 5. [Roots of the REST/SOAP Debate](http://web.archive.org/web/20120421084456/http://www.prescod.net/rest/rest_vs_soap_overview/)
