@@ -154,13 +154,15 @@ REST의 예로 들면 `api/v1/github/docs` 라는 api가 해당 api에 대한 �
 역시 `XML` 기반이다보니 복잡해보인다.
 하지만 하나씩 까보면 그렇게 어렵지(??)는 않은데 중요하게 볼 부분은 다음과 같다.
 
-1. `<wsdl:types> ... </wsdl:types>` : 교환될 메시지의 설명 및 해당 메시지에 사용될 타입을 정의한다. 여기서 타입은 스키마의 정의에 따르는데 우리는 `xmlns:tns="http://dailyworker.github.io/tiny-travel/flight/schemas/types" ` 여기에 명시된 타입들로 처리된다고 생각하면 된다.  실제로, `<element name="from" type="tns:Airport"/>` 와 같이 `tns` 가 붙은 것들은 해당 스키마에서 정해둔 타입을 활용한다.
-2. `<wsdl:message> ... </wsdl:message>` : 어떠한 메시지가 교환되는지에 대한 내용이 담겨져있다. `<wsdl:message name="GetFlightsRequest">`  이 부분을 위의 코드에서 검색해보자. 이는 DTO마냥 `GetFlightsRequest` 형식이 들어올 경우에 아래의 블록이 수행된다는 내용이다.
-3. `<wsdl:part> ... </wsdl:part>` : 위의 내용의 아래 블록을 보면 명시된 내용인데 이는 내부에서 타입을 선언하자면 `XML` 크기가 너무 커지니 `GetFlightsRequest` 의 타입에 대한 바인딩 정보가 담겨져 있다고 생각하면된다. (원래라면 내부에 또 타입을 정의할 수도 있는데 이렇게 함으로써 XML의 중복을 제거한다고 생각하면 된다.)
-4. `<wsdl:portType> ... <wsdl:portType>` : RESTful API의 예시로 들면 어떠한 요청이 들어왔을 때, 응답이 어떠한 값으로 나오는지에 대한 정의가 명세되어있다고 생각하면 될 것 같다. 
-5. `<wsdl:binding> ... <wsdl:binding>`  : 특정 `portType` 에 대한 메시지 포맷이나 프로토콜, `operation` 에 대한 정의부분이라고 생각하면 된다.
+1. `<wsdl:types> ... </wsdl:types>` : **교환될 메시지의 설명 및 해당 메시지에 사용될 타입을 정의**한다. 여기서 타입은 스키마의 정의에 따르는데 우리는 `xmlns:tns="http://dailyworker.github.io/tiny-travel/flight/schemas/types" ` 여기에 명시된 타입들로 처리된다고 생각하면 된다.  실제로, `<element name="from" type="tns:Airport"/>` 와 같이 `tns` 가 붙은 것들은 해당 스키마에서 정해둔 타입을 활용한다.
+2. `<wsdl:message> ... </wsdl:message>` : **어떠한 메시지가 교환되는지에 대한 내용이 담겨져있다.** `<wsdl:message name="GetFlightsRequest">`  이 부분을 위의 코드에서 검색해보자. 이는 DTO마냥 `GetFlightsRequest` 형식이 들어올 경우에 아래의 블록이 수행된다는 내용이다.
+3. `<wsdl:part> ... </wsdl:part>` : 위의 내용의 아래 블록을 보면 명시된 내용인데 이는 내부에서 타입을 선언하자면 `XML` 크기가 너무 커지니 `GetFlightsRequest` 의 **타입에 대한 바인딩 정보가 담겨져 있다고 생각**하면된다. (원래라면 내부에 또 타입을 정의할 수도 있는데 이렇게 함으로써 XML의 중복을 제거한다고 생각하면 된다.)
+4. `<wsdl:portType> ... <wsdl:portType>` : RESTful API의 예시로 들면 **어떠한 요청이 들어왔을 때, 응답이 어떠한 값으로 나오는지에 대한 정의**가 명세되어있다고 생각하면 될 것 같다. 
+5. `<wsdl:binding> ... <wsdl:binding>`  : 특정 `portType` 에 대한 **메시지 포맷이나 프로토콜, operation 에 대한 정의**부분이라고 생각하면 된다.
 
-대략적인 내용은 이러하다. 좀 더 자세한 내용을 알고 싶다면 [Web Service Definition Language (WSDL) 1.1](https://www.w3.org/TR/wsdl.html) 이 문서를 추천한다. 상세 스펙문서이다. 
+대략적인 내용은 이러하다. 
+
+좀 더 자세한 내용을 알고 싶다면 [Web Service Definition Language (WSDL) 1.1](https://www.w3.org/TR/wsdl.html) 이 문서를 추천한다. 상세 스펙문서이다. 
 
 뭐 이 내용들은 밑에 실습을 진행하면서 다시한번 이야기해보도록 하겠다.
 자세한 이해보다는 대략적으로 아 대충 이런거구나라고 느끼는게 더 중요할 것 같다.
@@ -178,12 +180,16 @@ REST의 예로 들면 `api/v1/github/docs` 라는 api가 해당 api에 대한 �
 
 이 짤방이 너무나 잘 요약해주고 있는 것 같다. SOAP는 위의 규약과 WSDL등의 규칙이 존재하기때문에 데이터 요청을 주고받을 때도 **SOAP Standards** 를 지켜서 보내야한다.
 
+여기서 말하는 **SOAP Standard** 는 **SOAP Envelope, SOAP Head, SOAP Body**와 같은 것들을 말한다.
+
 + SOAP 데이터 요청 예시
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22961251/154505598-c71a92c2-fcce-4577-8d86-2e3713e1f5c3.png">
 </p>
 
-또한, 최대의 단점은 단순 요청도 데이터 타입과 규약들이 필요하다보니 **POST**로 보내야한다. 
+이 예시를 보면 **SOAP Envelope, SOAP Head, SOAP Body**가 포함되어있고, **Body** 내부에 실제 요청을 보낼 데이터가 담겨져있는 것을 확인 할 수 있다.
+
+SOAP 방식의 추가적인 단점은 단순 요청도 데이터 타입과 규약들이 필요하다보니 **POST**로 보내야한다. 
 
 원래 RESTful이라면 `GET : api/v1/schedule/AMS-VCE-2006-01-13` 이런식으로도 단순화를 시킬 수 있었을 것이다. 
 
