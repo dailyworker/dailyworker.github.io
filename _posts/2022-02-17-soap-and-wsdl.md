@@ -265,6 +265,7 @@ RESTful과 SOAP 비교 관련해서는  [Roots of the REST/SOAP Debate](http://w
 이를 위해서 `build.gradle` 파일에 태스크와 의존성을 추가한다.
 
 + build.gradle 
+
 ```.groovy
 ...
 configurations {
