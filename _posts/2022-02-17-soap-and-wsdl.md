@@ -13,11 +13,14 @@ tags:
 
 ## GDS(Global Distribution Systems)
 수 많은 온라인 여행사(OTA)들이 전 세계의 항공 정보를 가져오고 있다.
-위에 개요에 말한 것 처럼 나는 이게 어떻게 가져오는 지 궁금해졌고, 리서치를 하기 시작했다. 리서치를 하다보니 생소한 용어인 GDS(Global Distribution Systems)라는 를 알게되었는데 GDS는 대형항공사의 자체 예약 시스템인 CRS(Central Reservation System)이 진화한 형태로 CRS는 항공사마다 요청 스펙이 다를 수 있다보니 다중 항공사와의 시스템 호환이나 예약에는 한계가 있어서 GDS가 만들어지게 되었다고 한다.
+위에 개요에 말한 것 처럼 나는 이게 어떻게 가져오는 지 궁금해졌고, 리서치를 하기 시작했다. 
+
+리서치를 하다보니 생소한 용어인 GDS(Global Distribution Systems)라는 를 알게되었는데 GDS는 대형항공사의 자체 예약 시스템인 CRS(Central Reservation System)이 진화한 형태로 CRS는 항공사마다 요청 스펙이 다를 수 있다보니 다중 항공사와의 시스템 호환이나 예약에는 한계가 있어서 GDS가 만들어지게 되었다고 한다.
 
 아마도, 많은 여행사들이 이 GDS를 통해서 항공 정보를 가져오는 것으로 보인다. 
 
 GDS는 전세계에서 크게 3개의 기업으로 나눠지는데 다음과 같다.
+
 	1. [토파스(아마데우스)](https://developers.amadeus.com/)
 	2. [애바카스(아시나아세이버)](https://www.asianasabre.co.kr/)
 	3. [갈릴레오, 월드스팬(트래블포트)](http://galileo.co.kr/)
@@ -32,6 +35,7 @@ GDS는 전세계에서 크게 3개의 기업으로 나눠지는데 다음과 같
 찾아보니 [Bdtask](https://www.bdtask.com/flight-booking-software.php) 이런 곳이 그러한 역할을 해줄 것 같다. 아무튼 GDS마다 제공해주는 API 방식도 가지각색인데 그 중에서 **SOAP(Simple Object Access Protocol)** 은 공통적으로 제공한다.
 
 본 포스팅은 **SOAP** 로 데이터를 통신하는 예제를 다뤄보고자한다.
+
 그 전에 먼저 알아둬야할 선행 지식들이 몇가지 존재한다.
 
 ## SOAP와 WSDL
@@ -368,7 +372,11 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
 위 코드에서 중요한 부분만 살펴보자.
 
++  `countriesSchema()`
+
 먼저 `countriesSchema()` 는 `resource/countries.xsd` 파일을 통해서 이 파일을 스키마로 사용하겠다고 선언하는 부분이다.
+
++ `defaultWsdl11Definition(XsdSchema countiresSchema)`
 
 `defaultWsdl11Definition(XsdSchema countiresSchema)` 은 입력된 스키마를 토대로 `<wsdl:definition> ... </wsdl:definition>` 을 만들어주는 녀석이다.  내부 로직을 보면 알겠지만, uri나 portType등을 설정한다.
 
@@ -399,7 +407,7 @@ public class CountryEndpoint {
 
 여기서는 `getCountry()` 메서드 부분만 보고자한다.
 
-1. `@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")`
++ `@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")`
 
 먼저 `@PayloadRoot` 는 @MVC의 `@RequestMapping` 과 비슷한 역할을 한다. 다른 부분은 `@PayloadRoot` 의 `namespace` 와 `localPart` 가 일치해야 하위 메서드로 매핑되어 타진다는 것 뿐이다. 
 
@@ -412,7 +420,7 @@ public class CountryEndpoint {
 그 뒤에 `localPart` 는 요청으로 들어온 데이터 객체의 타입을 확인한다.
 여기서는 `getCountryRequest` 일 때 하위 메서드가 실행될 것이다. 
 
-2. `@ResponsePayload`
++  `@ResponsePayload`
 이 어노테이션은 @MVC의 `@ResponseBody` 와 비슷한 역할을 한다 보면된다.
 
 뭐 이 두개만 알고있다면 내부 로직은 대충 요청으로 들어온 값을 찾아서 있으면 `GetCountryResponse` 로 감싸서 던진다는 내용이라 보면 될 것이다.
@@ -490,6 +498,10 @@ public static FlightSchedule toSchemaType(io.dailyworker.flight.domain.FlightSch
 내 생각은 분명 JAXB를 제너레이트할 때 다른 클래스명으로 만드는 방법도 있을 것 같은데 아직 못찾았으니 일단 임시방편으로 활용하고 있다.
 
 더 나아가 분명 도메인, XSD 스키마 클래스간의 매핑도 일일히 위와 같이 하지 않고 오브젝트매퍼와 같은 도구가 있을 것 같은데 찾으면 공유해보도록 하겠다.
+
+참고로 웹서비스 예제는 아주 잘나와있는 예제가 있다.
+
+JPA와 활용해서 언마샬링 객체와 컨버팅 및 핸들링하는 부분의 상당한 부분을 이 프로젝트에서 아이디어를 착안하고 이를 적절하게 바꾸면서 사용하고 있는데 [spring-ws-sample](https://github.com/spring-projects/spring-ws-samples) 이 프로젝트를 추천한다.
 
 
 # 레퍼런스 
