@@ -21,9 +21,9 @@ tags:
 
 GDS는 전세계에서 크게 3개의 기업으로 나눠지는데 다음과 같다.
 
-	1. [토파스(아마데우스)](https://developers.amadeus.com/)
-	2. [애바카스(아시나아세이버)](https://www.asianasabre.co.kr/)
-	3. [갈릴레오, 월드스팬(트래블포트)](http://galileo.co.kr/)
+1. [토파스(아마데우스)](https://developers.amadeus.com/)
+2. [애바카스(아시나아세이버)](https://www.asianasabre.co.kr/)
+3. [갈릴레오, 월드스팬(트래블포트)](http://galileo.co.kr/)
 
 이중에서 토파스는 대한항공이 사용하고, 애바카스는 아시나아에서 사용한다.
 리서치를 하다보니 GDS와 항공사와 합작회사를 만들어서 사용하는게 대다수인 거 같다.
