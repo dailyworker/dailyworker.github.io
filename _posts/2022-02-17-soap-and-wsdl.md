@@ -1,5 +1,5 @@
 ---
-title: "Spring 예시로 알아보는 SOAP와 WSDL"
+title: "Spring 공식 예제로 알아보는 SOAP와 WSDL"
 date: 2022-02-17 23:39:00 +0900
 tags:
   - SOAP
