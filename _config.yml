@@ -16,13 +16,13 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale: "ko"
-title: "개발 한입"
+title: "개발한입"
 title_separator: "-"
 name: "Seansin"
-description: "초심을 잃지 않는 개발자"
-url: "https://dailyworker.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description: ""
+url: "https://brewagebear.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
-repository: "dailyworker/dailyworker-comments" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository: "brewagebear/blog-comments" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute: 200
@@ -104,7 +104,7 @@ author:
   avatar: "/assets/images/profile.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio: "온새미로"
   location: "Korea"
-  email: "Workingssu@gmail.com"
+  email: "workingssu@gmail.com"
   uri:
   home: "#" # null (default), "absolute or relative url to link to author home"
   bitbucket:
@@ -113,11 +113,11 @@ author:
   flickr:
   facebook: 100005450317017
   foursquare:
-  github: "dailyworker"
+  github: "brewagebear"
   gitlab:
   google_plus:
   keybase:
-  instagram: suung_sin
+  instagram: liquid_bear
   lastfm:
   linkedin: # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
   pinterest:
