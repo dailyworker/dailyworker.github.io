@@ -4,6 +4,7 @@ date: 2018-08-16 18:06:00 +0900
 tags: 
 - Java
 - DesignPatterns
+redirect_to: "https://brewagebear.github.io/"
 ---
 
 # 개요 

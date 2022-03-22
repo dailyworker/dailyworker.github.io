@@ -6,6 +6,7 @@ tags:
   - Spring Data JPA
   - OOP
   - Java
+redirect_to: "https://brewagebear.github.io/review-startup-homework/"
 ---
 
 - STEP 1. 구현 중에 맞딱드린 고민과 해결방법

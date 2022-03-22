@@ -7,6 +7,7 @@ tags:
   - Security
   - Chiphermode
   - Cryptography
+redirect_to: "https://brewagebear.github.io/AES-Algorithm-and-Chiper-mode/"
 ---
 
 # 개요 

@@ -5,6 +5,7 @@ tags:
   - SOAP
   - WSDL
   - Spring
+redirect_to: "https://brewagebear.github.io/soap-and-wsdl/"
 ---
 
 # 개요

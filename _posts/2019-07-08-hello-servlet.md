@@ -5,6 +5,7 @@ tags:
 - Java
 - Servlet
 - WebApplication
+redirect_to: "https://brewagebear.github.io/"
 ---
 
 ## 1. 서블릿(Servlet) 이란?

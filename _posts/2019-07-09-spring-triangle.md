@@ -6,6 +6,7 @@ tags:
   - Spring
   - WebApplication
   - DesignPatterns
+redirect_to: "https://brewagebear.github.io/spring-triangle/"
 ---
 
 + STEP 1. 제어 역전(IoC, Inversion of Control)

@@ -5,6 +5,7 @@ tags:
   - Java
   - JVM
   - Core
+redirect_to: "https://brewagebear.github.io/fundamental-jvm-classloader/"
 ---
 
 # 목차

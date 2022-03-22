@@ -7,6 +7,8 @@ tags:
 - Tomcat
 - Nginx
 - setting_environment
+
+redirect_to: "https://brewagebear.github.io/connect-nginx-with-tomcat/"
 ---
 
 # 개요

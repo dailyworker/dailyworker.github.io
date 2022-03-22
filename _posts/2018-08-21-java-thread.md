@@ -4,6 +4,7 @@ date: 2018-08-21 19:00:00 +0900
 tags: 
 - Java
 - Thread
+redirect_to: "https://brewagebear.github.io/"
 ---
 
 # 개요 

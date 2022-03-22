@@ -4,6 +4,7 @@ date: 2018-06-25 18:02:00 +0900
 tags: 
     - blog  
     - start
+redirect_to: "https://brewagebear.github.io/"
 ---
 
 # 첫 블로그 포스팅

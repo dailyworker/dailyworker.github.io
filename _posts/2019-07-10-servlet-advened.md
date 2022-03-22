@@ -6,6 +6,7 @@ tags:
   - Servlet
   - WebApplication 
   - Design_Pattern
+redirect_to: "https://brewagebear.github.io/front-controller-and-command-pattern/"
 ---
 
 + STEP 1. URI-pattern

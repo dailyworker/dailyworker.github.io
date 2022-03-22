@@ -5,6 +5,7 @@ tags:
   - Java
   - Servlet
   - WebApplication
+redirect_to: "https://brewagebear.github.io/hello-servlet-request/"
 ---
 
 + STEP 1. 포워딩(Forwading)이란?

@@ -5,6 +5,7 @@ tags:
   - AI(Artificial Intelligence)
   - ML(Machine Learning)
   - Linear Regression
+redirect_to: "https://brewagebear.github.io/"
 ---
 
 # Dive into Linear Regression

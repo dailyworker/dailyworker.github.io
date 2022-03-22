@@ -5,6 +5,7 @@ tags:
   - JavaScript
   - ES6
   - Fundamental
+redirect_to: "https://brewagebear.github.io/fundamentals-of-javascript/"
 ---
 
 - STEP 1. ES6 VS ES6 이전 자바스크립트

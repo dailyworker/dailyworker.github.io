@@ -7,6 +7,7 @@ tags:
     - Tomcat
     - Java
     - setting_environment
+redirect_to: "https://brewagebear.github.io/install-tomcat-on-centos/"
 ---
 ## 개요
 이번 글은 Apache Tomcat 설치하고 Index.jsp 페이지인 고양이가 뛰어다니는 화면을 웹브라우저에 출력하는 것을 목표로 하겠다.

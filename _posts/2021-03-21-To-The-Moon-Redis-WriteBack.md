@@ -5,6 +5,7 @@ tags:
   - Redis
   - Groovy
   - Lettuce
+redirect_to: "https://brewagebear.github.io/better-logging-with-redis/"
 ---
 
 # 목차

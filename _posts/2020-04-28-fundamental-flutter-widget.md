@@ -5,6 +5,7 @@ tags:
   - Flutter
   - Dart
   - Fundamental
+redirect_to: "https://brewagebear.github.io/fundamental-of-flutter-widget/"
 ---
 
 - STEP 1. 서론

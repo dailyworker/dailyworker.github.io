@@ -4,6 +4,7 @@ date: 2020-11-15 23:39:00 +0900
 tags:
   - Java
   - OOP
+redirect_to: "https://brewagebear.github.io/review-essence-of-object-orientation/"
 ---
 
 # 객체지향의 사실과 오해 1장 리뷰
