@@ -7,7 +7,7 @@ tags:
     - JDK
     - Java
     - setting_environment
-redirect_to: "https://brewagebear.github.io/install-jdk-on-centos/"
+redirect_to: "https://brewagebear.github.io/install-jdk-on-centos"
 ---
 
 
